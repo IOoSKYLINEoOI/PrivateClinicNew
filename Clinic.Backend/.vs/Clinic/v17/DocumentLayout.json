@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Project.Clinic\\Clinic.Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Department.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Department.cs",
+              "RelativeDocumentMoniker": "Clinic.Core\\Models\\Department.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Department.cs",
+              "RelativeToolTip": "Clinic.Core\\Models\\Department.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T12:41:17.223Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Program.cs",
+              "RelativeDocumentMoniker": "Clinic.Web\\Program.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Program.cs",
+              "RelativeToolTip": "Clinic.Web\\Program.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAiwD0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T21:49:16.531Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
