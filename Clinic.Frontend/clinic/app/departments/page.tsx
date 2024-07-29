@@ -5,7 +5,7 @@ import { Departments } from "../components/Departments";
 import { useEffect, useState } from "react";
 import { createDepartment, deleteDepartment, DepartmentRequest, getAllDepartments, updateDepartment } from "../services/departments";
 import Title from "antd/es/typography/Title";
-import { CreateUpdateDepartment, Mode } from "../components/CreateUpdateDepartment";
+import { CreateUpdateDepartment, ModeDepartment } from "../components/CreateUpdateDepartment";
 
 export default function DepartmentsPage(){
     const defaultValues = {
@@ -19,7 +19,7 @@ export default function DepartmentsPage(){
     const [departments, setDepartments] = useState<Department[]>([]);
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [mode, setMode] = useState(Mode.Create);
+    const [mode, setMode] = useState(ModeDepartment.Create);
 
     useEffect(() => {
         const getDepartments = async () =>{
@@ -56,7 +56,7 @@ export default function DepartmentsPage(){
     }
 
     const openModal = () => {
-        setMode(Mode.Create);
+        setMode(ModeDepartment.Create);
         setIsModalOpen(true);
     }
 
@@ -66,7 +66,7 @@ export default function DepartmentsPage(){
     }
 
     const openModalEdit = (department: Department) =>{
-        setMode(Mode.Edit);
+        setMode(ModeDepartment.Edit);
         setValues(department);
         setIsModalOpen(true);
     }

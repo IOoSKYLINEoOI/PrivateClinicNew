@@ -1,11 +1,22 @@
 import Modal from "antd/es/modal/Modal";
-import { DepartmentRequest } from "../services/departments";
 import Input from "antd/es/input/Input";
 import { useEffect, useState } from "react";
 import TextArea from "antd/es/input/TextArea";
+import { Button } from "antd";
+import { CreateUpdateAddress, ModeAddress } from "./CreateUpdateAddress";
+import { AddressRequest, createAddress, deleteAddress, updateAddress } from "../services/addresses";
+import { DepartmentRequest } from "../services/departments";
+import { Address } from "../Models/Address";
+
+interface Department {
+    id: string;
+    name: string;
+    description?: string;
+    addressId: string;
+}
 
 interface Props {
-    mode: Mode;
+    mode: ModeDepartment;
     value: Department;
     isModalOpen: boolean;
     handleCancel: () => void;
@@ -13,7 +24,7 @@ interface Props {
     handleUpdate: (id: string, request: DepartmentRequest) => void;
 }
 
-export enum Mode {
+export enum ModeDepartment {
     Create,
     Edit,
 }
@@ -30,6 +41,22 @@ export const CreateUpdateDepartment = ({
     const [description, setDescription] = useState<string>("");
     const [addressId, setAddressId] = useState<string>("");
 
+    const defaultValuesAddress: Address = {
+        id: "",
+        country: "",
+        region: "",
+        city: "",
+        street: "",
+        houseNumber: 1,
+        apartmentNumber: 1,
+        description: "",
+        pavilion: ""
+    };
+
+    const [valuesAddress, setValuesAddress] = useState<Address>(defaultValuesAddress);
+    const [isModalAddressOpen, setIsModalAddressOpen] = useState<boolean>(false);
+    const [modeAddress, setModeAddress] = useState<ModeAddress>(ModeAddress.Create);
+
     useEffect(() => {
         setName(value.name);
         setDescription(value.description ?? "");
@@ -38,16 +65,49 @@ export const CreateUpdateDepartment = ({
 
     const handleOnOk = async () => {
         const departmentRequest: DepartmentRequest = { name, description, addressId };
-        if (mode === Mode.Create) {
+        if (mode === ModeDepartment.Create) {
             handleCreate(departmentRequest);
         } else {
             handleUpdate(value.id, departmentRequest);
         }
     };
 
+    const handleCreateAddress = async (request: AddressRequest) => {
+        const newAddressId = await createAddress(request);
+        setAddressId(newAddressId);
+        closeModalAddress();
+        return newAddressId;
+    };
+
+    const handleUpdateAddress = async (id: string, request: AddressRequest) => {
+        await updateAddress(id, request);
+        closeModalAddress();
+    };
+
+    const handleDeleteAddress = async (id: string) => {
+        await deleteAddress(id);
+        closeModalAddress();
+    };
+
+    const openModalAddress = () => {
+        setModeAddress(ModeAddress.Create);
+        setIsModalAddressOpen(true);
+    };
+
+    const closeModalAddress = () => {
+        setValuesAddress(defaultValuesAddress);
+        setIsModalAddressOpen(false);
+    };
+
+    const openModalEditAddress = (address: Address) => {
+        setModeAddress(ModeAddress.Edit);
+        setValuesAddress(address);
+        setIsModalAddressOpen(true);
+    };
+
     return (
         <Modal
-            title={mode === Mode.Create ? "Добавить департамент" : "Редактировать департамент"}
+            title={mode === ModeDepartment.Create ? "Добавить департамент" : "Редактировать департамент"}
             open={isModalOpen}
             cancelText={"Отмена"}
             onOk={handleOnOk}
@@ -64,10 +124,21 @@ export const CreateUpdateDepartment = ({
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)}
                     placeholder={"Описание"}
                 />
-                <Input
-                    value={addressId}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAddressId(e.target.value)}
-                    placeholder={"Адрес"}
+                <Button
+                    type="primary"
+                    style={{ marginTop: "30px" }}
+                    size="large"
+                    onClick={openModalAddress}
+                >
+                    Добавить
+                </Button>
+                <CreateUpdateAddress
+                    mode={modeAddress}
+                    value={valuesAddress}
+                    isModalOpen={isModalAddressOpen}
+                    handleCreate={handleCreateAddress}
+                    handleUpdate={handleUpdateAddress}
+                    handleCancel={closeModalAddress}
                 />
             </div>
         </Modal>
