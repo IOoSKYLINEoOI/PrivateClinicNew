@@ -1,5 +1,5 @@
 import Card from "antd/es/card/Card"
-import {CardDepartmentTitle} from "./CardDepartmentTitle"
+import {CardDepartment} from "./CardDepartment"
 import Button from "antd/es/button/button"
 
 interface Props {
@@ -15,7 +15,7 @@ export const Departments = ({departments, handleDelete, handleOpen} : Props) =>{
             {departments.map((department : Department) => (
                 <Card 
                 key={department.id}
-                title ={<CardDepartmentTitle name={department.name}/>}
+                title ={<CardDepartment name={department.name}/>}
                 bordered = {false}
                 >
                     <p>{department.description}</p>

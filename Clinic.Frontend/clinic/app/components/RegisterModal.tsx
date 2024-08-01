@@ -2,7 +2,6 @@
 
 import { Modal, Input, DatePicker, Form, Button } from "antd";
 import { UserOutlined, MailOutlined, LockOutlined, PhoneOutlined } from "@ant-design/icons";
-import moment from "moment";
 import React from "react";
 import { RegisterUserRequest } from "../services/user";
 

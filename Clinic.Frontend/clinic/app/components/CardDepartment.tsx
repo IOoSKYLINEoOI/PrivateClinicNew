@@ -2,7 +2,7 @@ interface Props{
     name: string;
 }
 
-export const CardDepartmentTitle = ({name}: Props) => {
+export const CardDepartment = ({name}: Props) => {
     return (
         <div style = {{
             display: "flex",

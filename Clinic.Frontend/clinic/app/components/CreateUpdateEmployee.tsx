@@ -7,22 +7,23 @@ import { CreateUpdateAddress, ModeAddress } from "./CreateUpdateAddress";
 import { AddressRequest, createAddress, deleteAddress, updateAddress } from "../services/addresses";
 import { DepartmentRequest } from "../services/departments";
 import { Address } from "../Models/Address";
+import { EmployeeRequest } from "../services/employees";
 
 interface Props {
-    mode: ModeDepartment;
-    value: Department;
+    mode: ModeEmployee;
+    value: Employee;
     isModalOpen: boolean;
     handleCancel: () => void;
-    handleCreate: (request: DepartmentRequest) => void;
-    handleUpdate: (id: string, request: DepartmentRequest) => void;
+    handleCreate: (request: EmployeeRequest) => void;
+    handleUpdate: (id: string, request: EmployeeRequest) => void;
 }
 
-export enum ModeDepartment {
+export enum ModeEmployee {
     Create,
     Edit,
 }
 
-export const CreateUpdateDepartment = ({
+export const CreateUpdateEmployee = ({
     mode,
     value,
     isModalOpen,
@@ -30,9 +31,10 @@ export const CreateUpdateDepartment = ({
     handleCreate,
     handleUpdate,
 }: Props) => {
-    const [name, setName] = useState<string>("");
+    const [hiringDate, setHiringDate] = useState<string>("");
+    const [dateOfDismissal, setDateOfDismissal] = useState<string>("");
     const [description, setDescription] = useState<string>("");
-    const [addressId, setAddressId] = useState<string>("");
+    const [userId, setUserId] = useState<string>("");
 
     const defaultValuesAddress: Address = {
         id: "",
