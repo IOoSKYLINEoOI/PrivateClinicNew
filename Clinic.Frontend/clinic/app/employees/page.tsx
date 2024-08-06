@@ -1,62 +1,60 @@
 "use client";
 
 import Button from "antd/es/button/button";
-import { Departments } from "../components/Departments";
 import { useEffect, useState } from "react";
-import { createDepartment, deleteDepartment, DepartmentRequest, getAllDepartments, updateDepartment } from "../services/departments";
 import Title from "antd/es/typography/Title";
-import { CreateUpdateDepartment, ModeDepartment } from "../components/CreateUpdateDepartment";
+import { createEmployee, deleteEmployee, EmployeeRequest, getAllEmployees, updateEmployee } from "../services/employees";
+import { CreateUpdateEmployee, ModeEmployee } from "../components/CreateUpdateEmployee";
+import { Employees } from "../components/Employees";
 
 export default function EmployeesPage(){
     const defaultValues = {
-        name: "",
-        description: "",
-        addressId: "",
-    } as Department;
+        hiringDate: "",
+    } as Employee;
 
-    const[values, setValues] = useState<Department>(defaultValues);
+    const[values, setValues] = useState<Employee>(defaultValues);
 
-    const [departments, setDepartments] = useState<Department[]>([]);
+    const [employees, setEmployees] = useState<Employee[]>([]);
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [mode, setMode] = useState(ModeDepartment.Create);
+    const [mode, setMode] = useState(ModeEmployee.Create);
 
     useEffect(() => {
-        const getDepartments = async () =>{
-            const departments = await getAllDepartments();
+        const getEmployees = async () =>{
+            const employees = await getAllEmployees();
             setLoading(false);
-            setDepartments(departments);
+            setEmployees(employees);
         }
 
-        getDepartments();
+        getEmployees();
     }, [])
 
-    const handleCreateDepartment = async (request: DepartmentRequest) =>{
-        await createDepartment(request);
+    const handleCreateEmployee = async (request: EmployeeRequest) =>{
+        await createEmployee(request);
         closeModal();
 
-        const departments = await getAllDepartments();
-        setDepartments(departments);
+        const employee = await getAllEmployees();
+        setEmployees(employees);
     }
 
-    const handleUpdateDepartment = async (id: string, request: DepartmentRequest) =>{
-        await updateDepartment(id, request);
+    const handleUpdateEmployee = async (id: string, request: EmployeeRequest) =>{
+        await updateEmployee(id, request);
         closeModal();
 
-        const departments = await getAllDepartments();
-        setDepartments(departments);
+        const employees = await getAllEmployees();
+        setEmployees(employees);
     }
 
-    const handleDeleteDepartment = async (id: string) => {
-        await deleteDepartment(id);
+    const handleDeleteEmployee = async (id: string) => {
+        await deleteEmployee(id);
         closeModal();
 
-        const departments = await getAllDepartments();
-        setDepartments(departments);
+        const employees = await getAllEmployees();
+        setEmployees(employees);
     }
 
     const openModal = () => {
-        setMode(ModeDepartment.Create);
+        setMode(ModeEmployee.Create);
         setIsModalOpen(true);
     }
 
@@ -65,9 +63,9 @@ export default function EmployeesPage(){
         setIsModalOpen(false);
     }
 
-    const openModalEdit = (department: Department) =>{
-        setMode(ModeDepartment.Edit);
-        setValues(department);
+    const openModalEdit = (employee: Employee) =>{
+        setMode(ModeEmployee.Edit);
+        setValues(employee);
         setIsModalOpen(true);
     }
 
@@ -80,17 +78,17 @@ export default function EmployeesPage(){
                 onClick = {openModal}
             >Добавить</Button>
 
-            <CreateUpdateDepartment 
+            <CreateUpdateEmployee 
                 mode={mode} 
                 value={values} 
                 isModalOpen={isModalOpen} 
-                handleCreate={handleCreateDepartment}
-                handleUpdate={handleUpdateDepartment}
+                handleCreate={handleCreateEmployee}
+                handleUpdate={handleUpdateEmployee}
                 handleCancel={closeModal}
             />
 
 
-            {loading ? <Title>Loading...</Title> : <Departments departments = {departments} handleOpen={openModalEdit} handleDelete={handleDeleteDepartment}/>}
+            {loading ? <Title>Loading...</Title> : <Employees employees = {employees} handleOpen={openModalEdit} handleDelete={handleDeleteEmployee}/>}
         </div>
     )
 }

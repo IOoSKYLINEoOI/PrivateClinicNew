@@ -5,7 +5,7 @@ export interface EmployeeRequest{
     userId: string;
 }
 
-export const getAllEmployee = async () => {
+export const getAllEmployees = async () => {
     const response = await fetch("https://localhost:7179/employees");
 
     return response.json();
