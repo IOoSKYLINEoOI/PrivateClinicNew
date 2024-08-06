@@ -43,16 +43,16 @@ public class UsersController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> LoginUser(LoginUserRequest request)
     {
-        var result = await _userService.Login(request.Email, request.Password);
+        var token = await _userService.Login(request.Email, request.Password);
 
-        if (result.IsFailure)
+        if (token.IsFailure)
         {
-            return BadRequest(result.Error);
+            return BadRequest(token.Error);
         }
 
-        Response.Cookies.Append("secretCookie", result.Value);
+        Response.Cookies.Append("secretCookie", token.Value);
 
-        return Ok(result.Value);
+        return Ok();
     }
 
     [HttpPost("updateProfile")]

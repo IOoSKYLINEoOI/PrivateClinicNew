@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\extensions\\apiextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\extensions\\apiextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -27,12 +35,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Clinic.Web\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Clinic.Web\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowDQAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T09:49:11.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ApiExtensions.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Extensions\\ApiExtensions.cs",
+              "RelativeDocumentMoniker": "Clinic.Web\\Extensions\\ApiExtensions.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Extensions\\ApiExtensions.cs",
+              "RelativeToolTip": "Clinic.Web\\Extensions\\ApiExtensions.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwCcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T09:28:36.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Department.cs",
               "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Department.cs",
               "RelativeDocumentMoniker": "Clinic.Core\\Models\\Department.cs",
               "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Department.cs",
               "RelativeToolTip": "Clinic.Core\\Models\\Department.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAIwAIAAAAYAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAwwAIAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-24T12:41:17.223Z",
               "EditorCaption": ""
@@ -45,7 +79,7 @@
               "RelativeDocumentMoniker": "Clinic.Web\\Program.cs",
               "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Program.cs",
               "RelativeToolTip": "Clinic.Web\\Program.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAkwD0AAAABAAAA",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAAAEAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T21:49:16.531Z",
               "EditorCaption": ""
