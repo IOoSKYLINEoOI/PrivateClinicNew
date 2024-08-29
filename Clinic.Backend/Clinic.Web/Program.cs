@@ -1,57 +1,61 @@
-using Clinic.Application.Interfaces.Auth;
-using Clinic.Application.Services;
-using Clinic.Core.Interfaces.Repositories;
-using Clinic.Core.Interfaces.Services;
 using Clinic.DataAccess;
-using Clinic.DataAccess.Repositories;
-using Clinic.Infrastructure.Authentication;
+using Clinic.Application;
+using Clinic.Infrastructure;
+using Clinic.Web.Extensions;
 using Microsoft.AspNetCore.CookiePolicy;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Serilog;
+using Clinic.Infrastructure.Authentication;
+using Clinic.Web.Infrastructure;
+using Clinic.Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Настройка Serilog
+builder.Host.UseSerilog((context, loggerConfig) =>
+    loggerConfig.ReadFrom.Configuration(context.Configuration));
+
+var services = builder.Services;
+var configuration = builder.Configuration;
+
+// Регистрация аутентификации
+builder.Services.AddApiAuthentication(builder.Configuration);
+
+// Добавление контроллеров
 builder.Services.AddControllers();
 
+// Настройка Swagger для документации API
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ClinicDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ClinicContext")
-    ?? throw new InvalidOperationException("Connection string 'ClinicContext' not found.")));
-
+// Настройка JWT и ролей
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
-builder.Services.Configure<AuthorizationOptions>(builder.Configuration.GetSection(nameof(AuthorizationOptions)));
+builder.Services.Configure<RolePermissionsOptions>(builder.Configuration.GetSection("RolePermissionsOptions"));
 
-builder.Services.AddScoped<IAddressService, AddressService>();
-builder.Services.AddScoped<IAddressesRepository, AddressesRepository>();
-builder.Services.AddScoped<IDepartmentService, DepartmentService>();
-builder.Services.AddScoped<IDepartmentsRepository, DepartmentsRepository>();
-builder.Services.AddScoped<IEmployeeDepartmentService, EmployeeDepartmentService>();
-builder.Services.AddScoped<IEmployeesDepartmentsRepository, EmployeesDepartmentsRepository>();
-builder.Services.AddScoped<IEmployeeService, EmployeeService>();
-builder.Services.AddScoped<IEmployeesRepository, EmployeesRepository>();
-builder.Services.AddScoped<IImageService, ImageService>();
-builder.Services.AddScoped<IImagesRepository, ImagesRepository>();
-builder.Services.AddScoped<IPositionService, PositionService>();
-builder.Services.AddScoped<IPositionsRepository, PositionsRepository>();
-builder.Services.AddScoped<IReceptionService, ReceptionService>();
-builder.Services.AddScoped<IReceptionsRepository, ReceptionsRepository>();
-builder.Services.AddScoped<IResultICDService, ResultICDService>();
-builder.Services.AddScoped<IResultsICDRepository, ResultsICDRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+// Регистрация сервисов
+services
+    .AddPersistence(configuration)
+    .AddApplication()
+    .AddInfrastructure();
 
-builder.Services.AddScoped<IJwtProvider, JwtProvider>();
-builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+builder.Services.AddProblemDetails();
 
+// Регистрация обработчика исключений
+services.AddExceptionHandler<GlobalExceptionHandler>();
+
+// Создание и настройка приложения
 var app = builder.Build();
 
+// Настройка среды разработки
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// Использование статических файлов
+app.UseStaticFiles();
 
+// Конфигурация политики cookie
 app.UseCookiePolicy(new CookiePolicyOptions
 {
     MinimumSameSitePolicy = SameSiteMode.Strict,
@@ -59,25 +63,55 @@ app.UseCookiePolicy(new CookiePolicyOptions
     Secure = CookieSecurePolicy.Always
 });
 
-app.UseStaticFiles();
-
-app.UseRouting();
-
+// Использование аутентификации и авторизации
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Настройка обработки исключений
+app.UseExceptionHandler("/error");
+
+// Логирование запросов
+app.UseSerilogRequestLogging();
+
+// Настройка маршрутизации
+app.UseRouting();
+
+// Регистрация пользовательского middleware для логирования контекста запроса
+app.UseMiddleware<RequestLogContextMiddleware>();
+
+// Настройка маршрутов
 app.MapControllers();
-
-app.UseCors(x =>
-{
-    x.WithHeaders().AllowAnyHeader();
-    x.WithOrigins("http://localhost:3000");
-    x.WithMethods().AllowAnyMethod();
-});
-
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+
+
+
+
+
+
+
+
+
+
+
+//app.UseCors(x =>
+//{
+//    x.WithHeaders().AllowAnyHeader();
+//    x.WithOrigins("http://localhost:3000");
+//    x.WithMethods().AllowAnyMethod();
+//});
+
+//// Регистрация политик после настройки сервисов и перед запуском приложения
+//using (var scope = app.Services.CreateScope())
+//{
+//    var policyProvider = scope.ServiceProvider.GetRequiredService<PolicyProvider>();
+//    var authorizationOptions = scope.ServiceProvider.GetRequiredService<IOptions<Microsoft.AspNetCore.Authorization.AuthorizationOptions>>().Value;
+//    policyProvider.RegisterPolicies(authorizationOptions);
+//}
+
+

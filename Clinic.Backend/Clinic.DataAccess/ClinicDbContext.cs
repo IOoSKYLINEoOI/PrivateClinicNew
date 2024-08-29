@@ -5,7 +5,8 @@ using Microsoft.Extensions.Options;
 
 namespace Clinic.DataAccess;
 
-public class ClinicDbContext(DbContextOptions<ClinicDbContext> options) : DbContext(options)
+public class ClinicDbContext(DbContextOptions<ClinicDbContext> options,
+    IOptions<AuthorizationOptions> authOptions) : DbContext(options)
 {
     public DbSet<AddressEntity> Addresses { get; set; }
     public DbSet<DepartmentEntity> Departments { get; set; }
@@ -34,5 +35,6 @@ public class ClinicDbContext(DbContextOptions<ClinicDbContext> options) : DbCont
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new RoleConfiguration());
         modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
+        modelBuilder.ApplyConfiguration(new RolePermissionConfiguration(authOptions.Value));
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Clinic.Application.Services;
 using Clinic.Core.Models;
 using Clinic.Web.Contracts.Departments;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -29,6 +30,7 @@ public class DepartmentsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "AdminPolicy")]
     public async Task<ActionResult> CreateDepartment([FromBody] DepartmentRequest request)
     {
         var res = Department.Create(

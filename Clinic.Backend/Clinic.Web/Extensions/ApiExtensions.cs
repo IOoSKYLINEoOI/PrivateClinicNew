@@ -1,7 +1,5 @@
 ﻿using Clinic.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -11,18 +9,30 @@ public static class ApiExtensions
 {
     public static void AddApiAuthentication(
         this IServiceCollection services,
-        IOptions<JwtOptions> jwtOptions)
+        IConfiguration configuration)
     {
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        var jwtOptions = configuration.GetSection(nameof(JwtOptions)).Get<JwtOptions>();
+
+        services
+            .AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
             .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
             {
-                options.TokenValidationParameters = new() 
+                options.RequireHttpsMetadata = true;
+                options.SaveToken = true;
+
+                options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Value.SecretKey))
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(jwtOptions!.SecretKey))
                 };
 
                 options.Events = new JwtBearerEvents
@@ -36,6 +46,11 @@ public static class ApiExtensions
                 };
             });
 
-        services.AddAuthorization();
+        //services.AddScoped<IPermissionService, PermissionService>();
+
+        //// Регистрация PolicyProvider как Singleton
+        //services.AddSingleton<PolicyProvider>();
+
+        //services.AddSingleton<IAuthorizationHandler, PermissionAuthorizationHandler>();
     }
 }

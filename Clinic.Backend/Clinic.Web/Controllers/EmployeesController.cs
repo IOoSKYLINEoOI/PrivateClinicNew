@@ -1,6 +1,7 @@
 ﻿using Clinic.Application.Services;
 using Clinic.Core.Models;
 using Clinic.Web.Contracts.Employee;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -15,6 +16,7 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Policy = "ReadEmployee")]
     public async Task<ActionResult<List<EmployeeResponse>>> GetAllEmployee()
     {
         var result = await _employeeService.GetAllEmployee();

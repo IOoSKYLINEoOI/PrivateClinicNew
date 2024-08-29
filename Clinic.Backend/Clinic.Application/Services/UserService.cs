@@ -1,4 +1,5 @@
 ﻿using Clinic.Application.Interfaces.Auth;
+using Clinic.Core.Enums;
 using Clinic.Core.Interfaces.Repositories;
 using Clinic.Core.Interfaces.Services;
 using Clinic.Core.Models;
@@ -84,5 +85,12 @@ public class UserService : IUserService
     {
         await _usersRepository.Update(id, firstName, lastName, fatherName, dateOfBirth, addressId, imageId);
         return Result.Success();
+    }
+
+    public async Task<HashSet<Permission>> GetUserPermissions(Guid userId)
+    {
+        var result = await _usersRepository.GetUserPermissions(userId);
+
+        return result;
     }
 }

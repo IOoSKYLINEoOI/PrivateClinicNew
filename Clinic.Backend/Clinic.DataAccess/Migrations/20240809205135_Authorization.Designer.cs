@@ -4,6 +4,7 @@ using Clinic.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,13 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clinic.DataAccess.Migrations
 {
     [DbContext(typeof(ClinicDbContext))]
-    partial class ClinicDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240809205135_Authorization")]
+    partial class Authorization
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -184,111 +187,21 @@ namespace Clinic.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "ReadAddress"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "CreateAddress"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "UpdateAddress"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "DeleteAddress"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "ReadDepartment"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "CreateDepartment"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "UpdateDepartment"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "DeleteDepartment"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "ReadEmployee"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "CreateEmployee"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "UpdateEmployee"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Name = "DeleteEmployee"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Name = "UpdateUser"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Name = "DeleteUser"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Name = "ReadRecetion"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Name = "CreateReception"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Name = "UpdateReception"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Name = "DeleteReception"
-                        },
-                        new
-                        {
-                            Id = 19,
                             Name = "ReadResult"
                         },
                         new
                         {
-                            Id = 20,
+                            Id = 2,
                             Name = "CreateResult"
                         },
                         new
                         {
-                            Id = 21,
+                            Id = 3,
                             Name = "UpdateResult"
                         },
                         new
                         {
-                            Id = 22,
+                            Id = 4,
                             Name = "DeleteResult"
                         });
                 });

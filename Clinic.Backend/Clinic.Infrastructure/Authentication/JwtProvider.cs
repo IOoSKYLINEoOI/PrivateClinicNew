@@ -6,31 +6,42 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Clinic.Infrastructure.Authentication;
-
-public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
+namespace Clinic.Infrastructure.Authentication
 {
-    private readonly JwtOptions _options = options.Value;
-
-    public string Generate(User user)
+    public class JwtProvider : IJwtProvider
     {
-        Claim[] claims =
-        [
-            new (CustomClaims.UserId, user.Id.ToString()),
-            new ("Admin", "true")
-        ];
+        private readonly JwtOptions _options;
 
-        var signingCredentials = new SigningCredentials(
-            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey)),
-            SecurityAlgorithms.HmacSha256);
+        public JwtProvider(IOptions<JwtOptions> options)
+        {
+            _options = options.Value;
+        }
 
-        var token = new JwtSecurityToken(
-            claims: claims,
-            expires: DateTime.UtcNow.AddHours(_options.ExpiresHours),
-            signingCredentials: signingCredentials);
+        public string Generate(User user)
+        {
+            // Создание списка claims
+            var claims = new[]
+            {
+                new Claim(CustomClaims.UserId, user.Id.ToString())
+            };
 
-        var tokenValue = new JwtSecurityTokenHandler().WriteToken(token);
+            // Создание объекта SigningCredentials с использованием секретного ключа
+            var signingCredentials = new SigningCredentials(
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey)),
+                SecurityAlgorithms.HmacSha256);
 
-        return tokenValue;
+            // Создание JWT-токена
+            var token = new JwtSecurityToken(
+                issuer: _options.Issuer,  // Добавлен Issuer
+                audience: _options.Audience,  // Добавлена Audience
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(_options.ExpiresHours),
+                signingCredentials: signingCredentials);
+
+            // Преобразование токена в строку
+            var tokenValue = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return tokenValue;
+        }
     }
 }

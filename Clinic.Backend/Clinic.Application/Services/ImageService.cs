@@ -1,9 +1,7 @@
 ﻿using Clinic.Core.Interfaces.Repositories;
 using Clinic.Core.Models;
-using Clinic.DataAccess.Repositories;
 using CSharpFunctionalExtensions;
 using Microsoft.AspNetCore.Http;
-using System.Net;
 
 namespace Clinic.Application.Services;
 

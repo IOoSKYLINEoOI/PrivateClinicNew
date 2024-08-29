@@ -1,7 +1,10 @@
 ﻿using Azure;
 using Clinic.Application.Services;
+using Clinic.Core.Enums;
 using Clinic.Core.Interfaces.Services;
+using Clinic.Web.Contracts.Addresses;
 using Clinic.Web.Contracts.Users;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -56,6 +59,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost("updateProfile")]
+    [Authorize]
     public async Task<ActionResult> UpdateUser(Guid id, [FromBody] UserUpdateRequest request)
     {
         Guid? imageId = null;
@@ -86,5 +90,13 @@ public class UsersController : ControllerBase
         }
 
         return Ok();
+    }
+
+    [HttpGet("{id:guid}")]
+    public async Task<HashSet<Permission>> GetUserPermissions(Guid id)
+    {
+        var result = await _userService.GetUserPermissions(id);
+
+        return result;
     }
 }
