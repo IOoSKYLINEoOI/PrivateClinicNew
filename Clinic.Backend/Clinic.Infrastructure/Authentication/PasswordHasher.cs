@@ -1,5 +1,4 @@
-﻿using BCrypt.Net;
-using Clinic.Application.Interfaces.Auth;
+﻿using Clinic.Application.Interfaces.Auth;
 
 namespace Clinic.Infrastructure.Authentication;
 public class PasswordHasher : IPasswordHasher

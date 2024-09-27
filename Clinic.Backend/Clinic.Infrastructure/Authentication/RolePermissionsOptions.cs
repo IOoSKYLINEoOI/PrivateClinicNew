@@ -5,7 +5,7 @@
 
 public class RolePermission
 {
-    public string Role { get; set; }
+    public required string Role { get; set; }
     public List<string> Permissions { get; set; } = new List<string>();  // Инициализируем список по умолчанию
 }
 

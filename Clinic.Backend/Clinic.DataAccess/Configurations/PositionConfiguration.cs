@@ -1,4 +1,5 @@
-﻿using Clinic.DataAccess.Models;
+﻿using Clinic.Core.Enums;
+using Clinic.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -11,10 +12,19 @@ public class PositionConfiguration : IEntityTypeConfiguration<PositionEntity>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Name)
-            .HasMaxLength(60)
+            .HasMaxLength(100)
             .IsRequired();
 
+        var positions = Enum.GetValues<PositionEmployee>()
+            .Select(p => new PositionEntity
+            {
+                Id = (int)p,
+                Name = p.ToString()
+            });
+
+        builder.HasData(positions);
+
         builder.Property(x => x.Description)
-            .HasMaxLength(250);
+            .HasMaxLength(255);
     }
 }

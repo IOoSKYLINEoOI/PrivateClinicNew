@@ -11,7 +11,10 @@ public class EmployeeDepartmentConfiguration : IEntityTypeConfiguration<Employee
         builder.HasKey(e => new { e.EmployeeId, e.DepartmentId });
 
         builder.Property(x => x.Description)
-            .HasMaxLength(250);
+            .HasMaxLength(255);
+
+        builder.Property(x => x.PositionId) 
+            .IsRequired();
 
         builder.HasOne(x => x.Position)
             .WithMany(p => p.EmployeeDepartments)

@@ -45,12 +45,23 @@ services.AddExceptionHandler<GlobalExceptionHandler>();
 // Создание и настройка приложения
 var app = builder.Build();
 
+// Регистрация политик после настройки сервисов и перед запуском приложения
+using (var scope = app.Services.CreateScope())
+{
+    var policyProvider = scope.ServiceProvider.GetRequiredService<PolicyProvider>();
+    var authorizationOptions = scope.ServiceProvider.GetRequiredService<IOptions<Microsoft.AspNetCore.Authorization.AuthorizationOptions>>().Value;
+    policyProvider.RegisterPolicies(authorizationOptions);
+}
+
 // Настройка среды разработки
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Настройка обработки исключений
+app.UseExceptionHandler("/error");
 
 // Использование статических файлов
 app.UseStaticFiles();
@@ -63,18 +74,22 @@ app.UseCookiePolicy(new CookiePolicyOptions
     Secure = CookieSecurePolicy.Always
 });
 
+// Настройка маршрутизации
+app.UseRouting();
+
+app.UseCors(x =>
+{
+    x.WithHeaders().AllowAnyHeader();
+    x.WithOrigins("http://localhost:3000");
+    x.WithMethods().AllowAnyMethod();
+});
+
 // Использование аутентификации и авторизации
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Настройка обработки исключений
-app.UseExceptionHandler("/error");
-
 // Логирование запросов
 app.UseSerilogRequestLogging();
-
-// Настройка маршрутизации
-app.UseRouting();
 
 // Регистрация пользовательского middleware для логирования контекста запроса
 app.UseMiddleware<RequestLogContextMiddleware>();
@@ -99,19 +114,8 @@ app.Run();
 
 
 
-//app.UseCors(x =>
-//{
-//    x.WithHeaders().AllowAnyHeader();
-//    x.WithOrigins("http://localhost:3000");
-//    x.WithMethods().AllowAnyMethod();
-//});
 
-//// Регистрация политик после настройки сервисов и перед запуском приложения
-//using (var scope = app.Services.CreateScope())
-//{
-//    var policyProvider = scope.ServiceProvider.GetRequiredService<PolicyProvider>();
-//    var authorizationOptions = scope.ServiceProvider.GetRequiredService<IOptions<Microsoft.AspNetCore.Authorization.AuthorizationOptions>>().Value;
-//    policyProvider.RegisterPolicies(authorizationOptions);
-//}
+
+
 
 

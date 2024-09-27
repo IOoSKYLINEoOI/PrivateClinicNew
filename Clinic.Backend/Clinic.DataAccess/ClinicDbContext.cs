@@ -9,21 +9,26 @@ public class ClinicDbContext(DbContextOptions<ClinicDbContext> options,
     IOptions<AuthorizationOptions> authOptions) : DbContext(options)
 {
     public DbSet<AddressEntity> Addresses { get; set; }
+    public DbSet<AppointmentEntity> Appointments { get; set; }
     public DbSet<DepartmentEntity> Departments { get; set; }
-    public DbSet<EmployeeEntity> Employees { get; set; }
     public DbSet<EmployeeDepartmentEntity> EmployeeDepartments { get; set; }
+    public DbSet<EmployeeEntity> Employees { get; set; }
     public DbSet<ImageEntity> Images { get; set; }
     public DbSet<PermissionEntity> Permissions { get; set; }
     public DbSet<PositionEntity> Positions { get; set; }
     public DbSet<ReceptionEntity> Receptions { get; set; }
     public DbSet<ResultICDEntity> ResultsICD { get; set; }
     public DbSet<RoleEntity> Roles { get; set; }
+    public DbSet<ScheduleEntity> Schedules {  get; set; }
+    public DbSet<StatusAppointmentEntity> StatusAppointments { get; set; }
+    public DbSet<TimeSlotEntity> TimeSlots { get; set; }
     public DbSet<UserEntity> Users { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new AddressConfiguration());
+        modelBuilder.ApplyConfiguration(new AppointmentConfiguration());
         modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
         modelBuilder.ApplyConfiguration(new EmployeeDepartmentConfiguration());
         modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
@@ -32,8 +37,12 @@ public class ClinicDbContext(DbContextOptions<ClinicDbContext> options,
         modelBuilder.ApplyConfiguration(new PositionConfiguration());
         modelBuilder.ApplyConfiguration(new ReceptionConfiguration());
         modelBuilder.ApplyConfiguration(new ResultICDConfiguration());
-        modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new RoleConfiguration());
+        modelBuilder.ApplyConfiguration(new ScheduleConfiguration());
+        modelBuilder.ApplyConfiguration(new StatusAppointmentConfiguration());
+        modelBuilder.ApplyConfiguration(new TimeSlotConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        
         modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
         modelBuilder.ApplyConfiguration(new RolePermissionConfiguration(authOptions.Value));
     }

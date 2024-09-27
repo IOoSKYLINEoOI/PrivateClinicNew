@@ -11,31 +11,31 @@ public class AddressConfiguration : IEntityTypeConfiguration<AddressEntity>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Country)
-            .HasMaxLength(60)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.Region)
-            .HasMaxLength(60)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.City)
-            .HasMaxLength(60)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.Street)
-            .HasMaxLength(60)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.HouseNumber)
             .IsRequired();
 
         builder.Property(x => x.Pavilion)
-            .HasMaxLength(60);
+            .HasMaxLength(100);
 
         builder.Property(x => x.ApartmentNumber)
             .IsRequired();
 
         builder.Property(x => x.Description)
-            .HasMaxLength(250);
+            .HasMaxLength(255);
     }
 }

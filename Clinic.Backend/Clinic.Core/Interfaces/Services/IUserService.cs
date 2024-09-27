@@ -12,7 +12,7 @@ public interface IUserService
        Guid id,
        string firstName,
        string lastName,
-       string fatherName,
+       string? fatherName,
        DateOnly dateOfBirth,
        Guid? addressId,
        Guid? imageId);

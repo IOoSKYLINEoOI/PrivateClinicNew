@@ -2,7 +2,6 @@
 using Clinic.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Security;
 
 namespace Clinic.DataAccess.Configurations;
 

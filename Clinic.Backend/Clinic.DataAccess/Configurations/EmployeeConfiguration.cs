@@ -16,10 +16,12 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<EmployeeEntity>
         builder.Property(x => x.Description)
             .HasMaxLength(250);
 
+        builder.Property(x => x.UserId)
+            .IsRequired();
+
         builder.HasOne(e => e.User)
             .WithOne(e => e.Employee)
-            .HasForeignKey<EmployeeEntity>(e => e.UserId)
-            .IsRequired();
+            .HasForeignKey<EmployeeEntity>(e => e.UserId);
 
         builder.HasMany(e => e.Departments)
             .WithMany(d => d.Employees)

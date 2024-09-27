@@ -16,6 +16,18 @@ public class ReceptionsRepository : IReceptionsRepository
 
     public async Task Add(Reception reception)
     {
+        var department = await _context.Departments
+            .FirstOrDefaultAsync(u => u.Id == reception.DepartmentId)
+            ?? throw new Exception($"Department with ID {reception.DepartmentId} not found.");
+
+        var employee = await _context.Employees
+            .FirstOrDefaultAsync(u => u.Id == reception.EmployeeId)
+            ?? throw new Exception($"Employee with ID {reception.EmployeeId} not found.");
+
+        var user = await _context.Users
+            .FirstOrDefaultAsync(u => u.Id == reception.UserId)
+            ?? throw new Exception($"User with ID {reception.UserId} not found.");
+
         var receptionEntity = new ReceptionEntity()
         {
             Id = reception.Id,

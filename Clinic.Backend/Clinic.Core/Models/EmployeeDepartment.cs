@@ -6,7 +6,7 @@ public class EmployeeDepartment
 {
     public const int MaxDescriptionEmployeeDepartmentLength = 250;
 
-    private EmployeeDepartment(Guid employeeId, Guid departmentId, string? description, Guid positionId)
+    private EmployeeDepartment(Guid employeeId, Guid departmentId, string? description, int positionId)
     {
         EmployeeId = employeeId;
         DepartmentId = departmentId;
@@ -17,9 +17,9 @@ public class EmployeeDepartment
     public Guid EmployeeId { get; set; }
     public Guid DepartmentId { get; set; }
     public string? Description { get; set; }
-    public Guid PositionId { get; set; }
+    public int PositionId { get; set; }
 
-    public static Result<EmployeeDepartment> Create(Guid employeeId, Guid departmentId, string? description, Guid positionId)
+    public static Result<EmployeeDepartment> Create(Guid employeeId, Guid departmentId, string? description, int positionId)
     {
         if (!string.IsNullOrEmpty(description) && description.Length > MaxDescriptionEmployeeDepartmentLength)
         {

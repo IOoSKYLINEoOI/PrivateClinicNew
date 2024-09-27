@@ -11,7 +11,11 @@ public class ImageConfiguration : IEntityTypeConfiguration<ImageEntity>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.FileName)
-            .HasMaxLength(250)
+            .HasMaxLength(255)
+            .IsRequired();
+
+        builder.Property(x => x.FilePath)
+            .HasMaxLength(255)
             .IsRequired();
     }
 }

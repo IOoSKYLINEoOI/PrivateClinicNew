@@ -1,4 +1,5 @@
-﻿using Clinic.Core.Interfaces.Services;
+﻿using Clinic.Core.Enums;
+using Clinic.Core.Interfaces.Services;
 using Clinic.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +33,7 @@ public class PermissionAuthorizationHandler : AuthorizationHandler<PermissionReq
 
         var userPermissions = await permissionService.GetPermissionsAsync(userId);
 
+        // Проверка на наличие требуемых прав
         if (userPermissions.Intersect(requirement.Permissions).Any())
         {
             _logger.LogInformation("User {UserId} has the required permissions.", userId);
@@ -43,3 +45,4 @@ public class PermissionAuthorizationHandler : AuthorizationHandler<PermissionReq
         }
     }
 }
+

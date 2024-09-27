@@ -16,6 +16,10 @@ public class ResultsICDRepository : IResultsICDRepository
 
     public async Task Add(ResultICD resultICD)
     {
+        var reception = await _context.Receptions
+            .FirstOrDefaultAsync(r => r.Id == resultICD.ReceptionId)
+                ?? throw new Exception($"Reception with ID {resultICD.ReceptionId} not found.");
+
         var resultICDEntity = new ResultICDEntity()
         {
             Id = resultICD.Id,

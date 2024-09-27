@@ -3,76 +3,64 @@
   "WorkspaceRootPath": "C:\\Project.Clinic\\Clinic.Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\infrastructure\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\infrastructure\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\interfaces\\repositories\\iappointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\interfaces\\repositories\\iappointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|c:\\project.clinic\\clinic.backend\\clinic.application\\applicationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|solutionrelative:clinic.application\\applicationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{983FD505-2969-4D7B-BE58-3DFC303E7376}|Clinic.Infrastructure\\Clinic.Infrastructure.csproj|c:\\project.clinic\\clinic.backend\\clinic.infrastructure\\infrastructureextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{983FD505-2969-4D7B-BE58-3DFC303E7376}|Clinic.Infrastructure\\Clinic.Infrastructure.csproj|solutionrelative:clinic.infrastructure\\infrastructureextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|c:\\project.clinic\\clinic.backend\\clinic.dataaccess\\repositories\\addressesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\repositories\\addressesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|c:\\project.clinic\\clinic.backend\\clinic.dataaccess\\persistenceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\persistenceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|c:\\project.clinic\\clinic.backend\\clinic.dataaccess\\repositories\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\repositories\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|c:\\project.clinic\\clinic.backend\\clinic.application\\services\\addressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|solutionrelative:clinic.application\\services\\addressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\interfaces\\services\\iaddressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\interfaces\\services\\iaddressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\extensions\\apiextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\extensions\\apiextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|c:\\project.clinic\\clinic.backend\\clinic.dataaccess\\repositories\\schedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\repositories\\schedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|c:\\project.clinic\\clinic.backend\\clinic.dataaccess\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|c:\\project.clinic\\clinic.backend\\clinic.dataaccess\\repositories\\timeslotrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\repositories\\timeslotrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{983FD505-2969-4D7B-BE58-3DFC303E7376}|Clinic.Infrastructure\\Clinic.Infrastructure.csproj|c:\\project.clinic\\clinic.backend\\clinic.infrastructure\\authentication\\permissionauthorizationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{983FD505-2969-4D7B-BE58-3DFC303E7376}|Clinic.Infrastructure\\Clinic.Infrastructure.csproj|solutionrelative:clinic.infrastructure\\authentication\\permissionauthorizationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\interfaces\\repositories\\itimeslotrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\interfaces\\repositories\\itimeslotrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\models\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\models\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\enums\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\enums\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|c:\\project.clinic\\clinic.backend\\clinic.dataaccess\\models\\timeslotentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\models\\timeslotentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|c:\\project.clinic\\clinic.backend\\clinic.application\\services\\permissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|solutionrelative:clinic.application\\services\\permissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|c:\\project.clinic\\clinic.backend\\clinic.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|solutionrelative:clinic.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|c:\\project.clinic\\clinic.backend\\clinic.dataaccess\\models\\userroleentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\models\\userroleentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|c:\\project.clinic\\clinic.backend\\clinic.core\\enums\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\enums\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\controllers\\resultsicdcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\controllers\\resultsicdcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{983FD505-2969-4D7B-BE58-3DFC303E7376}|Clinic.Infrastructure\\Clinic.Infrastructure.csproj|c:\\project.clinic\\clinic.backend\\clinic.infrastructure\\authentication\\jwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{983FD505-2969-4D7B-BE58-3DFC303E7376}|Clinic.Infrastructure\\Clinic.Infrastructure.csproj|solutionrelative:clinic.infrastructure\\authentication\\jwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|c:\\project.clinic\\clinic.backend\\clinic.dataaccess\\models\\scheduleentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\models\\scheduleentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,233 +70,210 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Program.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Program.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Program.cs",
-              "RelativeToolTip": "Clinic.Web\\Program.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAAAGMAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "AddressesRepository.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\AddressesRepository.cs",
+              "RelativeDocumentMoniker": "Clinic.DataAccess\\Repositories\\AddressesRepository.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\AddressesRepository.cs",
+              "RelativeToolTip": "Clinic.DataAccess\\Repositories\\AddressesRepository.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T17:45:19.036Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-09-24T20:56:25.195Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Address.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Address.cs",
+              "RelativeDocumentMoniker": "Clinic.Core\\Models\\Address.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Address.cs",
+              "RelativeToolTip": "Clinic.Core\\Models\\Address.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:56:21.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IAppointmentRepository.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Interfaces\\Repositories\\IAppointmentRepository.cs",
+              "RelativeDocumentMoniker": "Clinic.Core\\Interfaces\\Repositories\\IAppointmentRepository.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Interfaces\\Repositories\\IAppointmentRepository.cs",
+              "RelativeToolTip": "Clinic.Core\\Interfaces\\Repositories\\IAppointmentRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:55:13.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "Clinic.Core\\Models\\Appointment.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Appointment.cs",
+              "RelativeToolTip": "Clinic.Core\\Models\\Appointment.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAACIAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:53:15.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppointmentRepository.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\AppointmentRepository.cs",
+              "RelativeDocumentMoniker": "Clinic.DataAccess\\Repositories\\AppointmentRepository.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\AppointmentRepository.cs",
+              "RelativeToolTip": "Clinic.DataAccess\\Repositories\\AppointmentRepository.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwDcAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:48:35.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddressService.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Application\\Services\\AddressService.cs",
+              "RelativeDocumentMoniker": "Clinic.Application\\Services\\AddressService.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Application\\Services\\AddressService.cs",
+              "RelativeToolTip": "Clinic.Application\\Services\\AddressService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:46:55.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IAddressService.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Interfaces\\Services\\IAddressService.cs",
+              "RelativeDocumentMoniker": "Clinic.Core\\Interfaces\\Services\\IAddressService.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Interfaces\\Services\\IAddressService.cs",
+              "RelativeToolTip": "Clinic.Core\\Interfaces\\Services\\IAddressService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:46:03.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ScheduleRepository.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\ScheduleRepository.cs",
+              "RelativeDocumentMoniker": "Clinic.DataAccess\\Repositories\\ScheduleRepository.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\ScheduleRepository.cs",
+              "RelativeToolTip": "Clinic.DataAccess\\Repositories\\ScheduleRepository.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:45:43.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ITimeSlotRepository.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Interfaces\\Repositories\\ITimeSlotRepository.cs",
+              "RelativeDocumentMoniker": "Clinic.Core\\Interfaces\\Repositories\\ITimeSlotRepository.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Interfaces\\Repositories\\ITimeSlotRepository.cs",
+              "RelativeToolTip": "Clinic.Core\\Interfaces\\Repositories\\ITimeSlotRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:44:46.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TimeSlotRepository.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\TimeSlotRepository.cs",
+              "RelativeDocumentMoniker": "Clinic.DataAccess\\Repositories\\TimeSlotRepository.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\TimeSlotRepository.cs",
+              "RelativeToolTip": "Clinic.DataAccess\\Repositories\\TimeSlotRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:42:42.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TimeSlotEntity.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Models\\TimeSlotEntity.cs",
+              "RelativeDocumentMoniker": "Clinic.DataAccess\\Models\\TimeSlotEntity.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Models\\TimeSlotEntity.cs",
+              "RelativeToolTip": "Clinic.DataAccess\\Models\\TimeSlotEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:22:54.753Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GlobalExceptionHandler.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Infrastructure\\GlobalExceptionHandler.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Infrastructure\\GlobalExceptionHandler.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Infrastructure\\GlobalExceptionHandler.cs",
-              "RelativeToolTip": "Clinic.Web\\Infrastructure\\GlobalExceptionHandler.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAQwBwAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T19:11:50.051Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InfrastructureExtensions.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Infrastructure\\InfrastructureExtensions.cs",
-              "RelativeDocumentMoniker": "Clinic.Infrastructure\\InfrastructureExtensions.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Infrastructure\\InfrastructureExtensions.cs",
-              "RelativeToolTip": "Clinic.Infrastructure\\InfrastructureExtensions.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T18:44:23.352Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PersistenceExtensions.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\PersistenceExtensions.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\PersistenceExtensions.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\PersistenceExtensions.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\PersistenceExtensions.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAgwBMAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T18:39:29.617Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\appsettings.json",
-              "RelativeDocumentMoniker": "Clinic.Web\\appsettings.json",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\appsettings.json",
-              "RelativeToolTip": "Clinic.Web\\appsettings.json",
-              "ViewState": "AQIAABoAAAAAAAAAAABRwAkAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-29T16:25:47.743Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "Clinic.Web\\appsettings.Development.json",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\appsettings.Development.json",
-              "RelativeToolTip": "Clinic.Web\\appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-29T16:27:13.588Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ApplicationExtensions.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Application\\ApplicationExtensions.cs",
-              "RelativeDocumentMoniker": "Clinic.Application\\ApplicationExtensions.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Application\\ApplicationExtensions.cs",
-              "RelativeToolTip": "Clinic.Application\\ApplicationExtensions.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T16:05:06.865Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApiExtensions.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Extensions\\ApiExtensions.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Extensions\\ApiExtensions.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Extensions\\ApiExtensions.cs",
-              "RelativeToolTip": "Clinic.Web\\Extensions\\ApiExtensions.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T15:00:28.267Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PermissionAuthorizationHandler.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Infrastructure\\Authentication\\PermissionAuthorizationHandler.cs",
-              "RelativeDocumentMoniker": "Clinic.Infrastructure\\Authentication\\PermissionAuthorizationHandler.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Infrastructure\\Authentication\\PermissionAuthorizationHandler.cs",
-              "RelativeToolTip": "Clinic.Infrastructure\\Authentication\\PermissionAuthorizationHandler.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAA1wAEAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T13:46:02.178Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UsersRepository.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\UsersRepository.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\Repositories\\UsersRepository.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\UsersRepository.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\Repositories\\UsersRepository.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAwwEwAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T15:01:18.396Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Clinic.Web\\Controllers\\UsersController.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAawFEAAAALAAAA",
+              "Title": "TimeSlot.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\TimeSlot.cs",
+              "RelativeDocumentMoniker": "Clinic.Core\\Models\\TimeSlot.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\TimeSlot.cs",
+              "RelativeToolTip": "Clinic.Core\\Models\\TimeSlot.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowCQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T09:08:34.945Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Clinic.Application\\Services\\UserService.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Application\\Services\\UserService.cs",
-              "RelativeToolTip": "Clinic.Application\\Services\\UserService.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAowCkAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T15:30:43.084Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Permission.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Enums\\Permission.cs",
-              "RelativeDocumentMoniker": "Clinic.Core\\Enums\\Permission.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Enums\\Permission.cs",
-              "RelativeToolTip": "Clinic.Core\\Enums\\Permission.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T14:10:30.194Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UserRoleEntity.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Models\\UserRoleEntity.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\Models\\UserRoleEntity.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Models\\UserRoleEntity.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\Models\\UserRoleEntity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T09:50:03.13Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Role.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Enums\\Role.cs",
-              "RelativeDocumentMoniker": "Clinic.Core\\Enums\\Role.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Enums\\Role.cs",
-              "RelativeToolTip": "Clinic.Core\\Enums\\Role.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T09:57:50.364Z"
+              "WhenOpened": "2024-09-24T20:23:15.071Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "PermissionService.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Application\\Services\\PermissionService.cs",
-              "RelativeDocumentMoniker": "Clinic.Application\\Services\\PermissionService.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Application\\Services\\PermissionService.cs",
-              "RelativeToolTip": "Clinic.Application\\Services\\PermissionService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAuAAAA",
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Clinic.Core\\Models\\User.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\User.cs",
+              "RelativeToolTip": "Clinic.Core\\Models\\User.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAAAGQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T13:54:15.573Z"
+              "WhenOpened": "2024-09-24T19:46:41.251Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ResultsICDController.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Controllers\\ResultsICDController.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Controllers\\ResultsICDController.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Controllers\\ResultsICDController.cs",
-              "RelativeToolTip": "Clinic.Web\\Controllers\\ResultsICDController.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "DocumentIndex": 14,
+              "Title": "ScheduleEntity.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Models\\ScheduleEntity.cs",
+              "RelativeDocumentMoniker": "Clinic.DataAccess\\Models\\ScheduleEntity.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.DataAccess\\Models\\ScheduleEntity.cs",
+              "RelativeToolTip": "Clinic.DataAccess\\Models\\ScheduleEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T09:08:51.175Z"
+              "WhenOpened": "2024-09-24T19:46:20.83Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "JwtProvider.cs",
-              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Infrastructure\\Authentication\\JwtProvider.cs",
-              "RelativeDocumentMoniker": "Clinic.Infrastructure\\Authentication\\JwtProvider.cs",
-              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Infrastructure\\Authentication\\JwtProvider.cs",
-              "RelativeToolTip": "Clinic.Infrastructure\\Authentication\\JwtProvider.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAowBgAAAAqAAAA",
+              "DocumentIndex": 13,
+              "Title": "Schedule.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Schedule.cs",
+              "RelativeDocumentMoniker": "Clinic.Core\\Models\\Schedule.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Core\\Models\\Schedule.cs",
+              "RelativeToolTip": "Clinic.Core\\Models\\Schedule.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAA2wDAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T15:16:50.475Z"
+              "WhenOpened": "2024-09-24T19:45:39.159Z",
+              "EditorCaption": ""
             }
           ]
         }

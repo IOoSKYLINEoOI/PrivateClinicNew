@@ -12,7 +12,7 @@ public class RoleConfiguration : IEntityTypeConfiguration<RoleEntity>
         builder.HasKey(r => r.Id);
 
         builder.Property(x => x.Description)
-            .HasMaxLength(250);
+            .HasMaxLength(255);
 
         builder.HasMany(r => r.Permissions)
             .WithMany(p => p.Roles)

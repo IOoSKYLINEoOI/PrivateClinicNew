@@ -30,7 +30,7 @@ public class EmployeeDepartmentService : IEmployeeDepartmentService
         return employeeDepartment != null ? Result.Success(employeeDepartment) : Result.Failure<EmployeeDepartment>("EmployeeDepartment not found");
     }
 
-    public async Task<Result> UpdateEmployeeDepartment(Guid employeeId, Guid departmentId, string? description, Guid positionId)
+    public async Task<Result> UpdateEmployeeDepartment(Guid employeeId, Guid departmentId, string? description, int positionId)
     {
         await _employeesDepartmentsRepository.Update(employeeId, departmentId, description, positionId);
         return Result.Success();

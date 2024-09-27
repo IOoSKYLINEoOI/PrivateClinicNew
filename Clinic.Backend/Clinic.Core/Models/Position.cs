@@ -4,25 +4,25 @@ namespace Clinic.Core.Models;
 
 public class Position
 {
-    public const int MaxPositionLength = 60;
-    public const int MaxDescriptionPositionLength = 250;
+    public const int MaxPositionNameLength = 100;
+    public const int MaxDescriptionPositionLength = 255;
 
-    private Position(Guid id, string name, string? description)
+    private Position(int id, string name, string? description)
     {
         Id = id;
         Name = name;
         Description = description;
     }
 
-    public Guid Id { get; }
+    public int Id { get; }
     public string Name { get; }
     public string? Description { get; }
 
-    public static Result<Position> Create(Guid id, string name, string? description)
+    public static Result<Position> Create(int id, string name, string? description)
     {
-        if (string.IsNullOrEmpty(name) || name.Length > MaxPositionLength)
+        if (string.IsNullOrEmpty(name) || name.Length > MaxPositionNameLength)
         {
-            return Result.Failure<Position>($"'{nameof(name)}' cannot be null, empty or more than {MaxPositionLength} characters.");
+            return Result.Failure<Position>($"'{nameof(name)}' cannot be null, empty or more than {MaxPositionNameLength} characters.");
         }
         if (!string.IsNullOrEmpty(description) && description.Length > MaxDescriptionPositionLength)
         {

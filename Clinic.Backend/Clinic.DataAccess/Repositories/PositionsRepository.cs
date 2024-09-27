@@ -28,7 +28,7 @@ public class PositionsRepository : IPositionsRepository
     }
 
     public async Task Update(
-        Guid id,
+        int id,
         string name,
         string? description)
     {
@@ -52,7 +52,7 @@ public class PositionsRepository : IPositionsRepository
         return positions;
     }
 
-    public async Task Delete(Guid id)
+    public async Task Delete(int id)
     {
         await _context.Positions
             .Where(x => x.Id == id)

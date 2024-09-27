@@ -11,11 +11,14 @@ public class DepartmentConfiguration : IEntityTypeConfiguration<DepartmentEntity
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Name)
-            .HasMaxLength(60)
+            .HasMaxLength(255)
             .IsRequired();
 
         builder.Property(x => x.Description)
-            .HasMaxLength(250);
+            .HasMaxLength(255);
+
+        builder.Property(x => x.AddressId)
+            .IsRequired();
 
         builder.HasOne(x => x.Address)
             .WithOne(y => y.Department)

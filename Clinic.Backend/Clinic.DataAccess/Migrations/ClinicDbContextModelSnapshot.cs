@@ -33,38 +33,73 @@ namespace Clinic.DataAccess.Migrations
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Country")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("HouseNumber")
                         .HasColumnType("int");
 
                     b.Property<string>("Pavilion")
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Region")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Street")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Addresses");
+                });
+
+            modelBuilder.Entity("Clinic.DataAccess.Models.AppointmentEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateOfBooking")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ReceptionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("StatusAppointmentId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("TimeSlotId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceptionId");
+
+                    b.HasIndex("StatusAppointmentId");
+
+                    b.HasIndex("TimeSlotId")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Appointments");
                 });
 
             modelBuilder.Entity("Clinic.DataAccess.Models.DepartmentEntity", b =>
@@ -77,13 +112,13 @@ namespace Clinic.DataAccess.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
@@ -102,11 +137,11 @@ namespace Clinic.DataAccess.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
-                    b.Property<Guid>("PositionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PositionId")
+                        .HasColumnType("int");
 
                     b.HasKey("EmployeeId", "DepartmentId");
 
@@ -152,12 +187,13 @@ namespace Clinic.DataAccess.Migrations
 
                     b.Property<string>("FileName")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("FilePath")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
@@ -295,58 +331,276 @@ namespace Clinic.DataAccess.Migrations
 
             modelBuilder.Entity("Clinic.DataAccess.Models.PositionEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Positions");
-                });
 
-            modelBuilder.Entity("Clinic.DataAccess.Models.ReceptionEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DateOfReturn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateReceipt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("DepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<Guid>("EmployeeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.HasIndex("EmployeeId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Receptions");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Doctor"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Nurse"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Receptionist"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Administrator"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Technician"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Surgeon"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Pediatrician"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Cardiologist"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Neurologist"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Gynecologist"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Oncologist"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Dermatologist"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "OrthopedicSurgeon"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Anesthesiologist"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Radiologist"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Physiotherapist"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "OccupationalTherapist"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "MedicalAssistant"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "LaboratoryTechnician"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "PharmacyTechnician"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "HealthAdministrator"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Name = "Dietitian"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Name = "ClinicalPsychologist"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Name = "SocialWorker"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Name = "Pathologist"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Name = "Psychiatrist"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Name = "FamilyDoctor"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Name = "GeneralPractitioner"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Name = "Endocrinologist"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Name = "Urologist"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Name = "Gastroenterologist"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Name = "Pulmonologist"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Name = "Nephrologist"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Name = "InfectiousDiseaseSpecialist"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Name = "Hematologist"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Name = "Rheumatologist"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Name = "SurgeonAssistant"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Name = "SurgicalNurse"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Name = "EmergencyMedicalTechnician"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Name = "Paramedic"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Name = "BiomedicalTechnician"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Name = "RadiologicTechnologist"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Name = "MedicalEquipmentTechnician"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Name = "ITSupportSpecialist"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Name = "HealthInformationTechnician"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Name = "NetworkAdministrator"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Name = "MedicalRecordsTechnician"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Name = "PharmacyTechnologist"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Name = "LaboratoryManager"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Name = "QualityControlSpecialist"
+                        });
                 });
 
             modelBuilder.Entity("Clinic.DataAccess.Models.ResultICDEntity", b =>
@@ -356,13 +610,13 @@ namespace Clinic.DataAccess.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ICDCode")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<Guid>("ReceptionId")
                         .HasColumnType("uniqueidentifier");
@@ -383,8 +637,8 @@ namespace Clinic.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -432,6 +686,127 @@ namespace Clinic.DataAccess.Migrations
                     b.ToTable("RolePermissionEntity");
                 });
 
+            modelBuilder.Entity("Clinic.DataAccess.Models.ScheduleEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<TimeOnly>("EndTime")
+                        .HasColumnType("time");
+
+                    b.Property<TimeOnly>("StartTime")
+                        .HasColumnType("time");
+
+                    b.Property<DateOnly>("WorkDate")
+                        .HasColumnType("date");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("Schedules");
+                });
+
+            modelBuilder.Entity("Clinic.DataAccess.Models.StatusAppointmentEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StatusAppointments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Scheduled"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Confirmed"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "CheckedIn"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "InProgress"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Completed"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Cancelled"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "NoShow"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Rescheduled"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Pending"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Declined"
+                        });
+                });
+
+            modelBuilder.Entity("Clinic.DataAccess.Models.TimeSlotEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<TimeOnly>("EndTime")
+                        .HasColumnType("time");
+
+                    b.Property<bool>("IsAvailable")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<Guid>("ScheduleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<TimeOnly>("StartTime")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ScheduleId");
+
+                    b.ToTable("TimeSlots");
+                });
+
             modelBuilder.Entity("Clinic.DataAccess.Models.UserEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -449,34 +824,35 @@ namespace Clinic.DataAccess.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("FatherName")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<Guid?>("ImageId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
+                        .HasMaxLength(18)
+                        .HasColumnType("nvarchar(18)");
 
                     b.HasKey("Id");
 
@@ -484,9 +860,15 @@ namespace Clinic.DataAccess.Migrations
                         .IsUnique()
                         .HasFilter("[AddressId] IS NOT NULL");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.HasIndex("ImageId")
                         .IsUnique()
                         .HasFilter("[ImageId] IS NOT NULL");
+
+                    b.HasIndex("PhoneNumber")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
@@ -504,6 +886,75 @@ namespace Clinic.DataAccess.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRoleEntity");
+                });
+
+            modelBuilder.Entity("ReceptionEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DateOfReturn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateReceipt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Receptions");
+                });
+
+            modelBuilder.Entity("Clinic.DataAccess.Models.AppointmentEntity", b =>
+                {
+                    b.HasOne("ReceptionEntity", "Reception")
+                        .WithMany("Appointments")
+                        .HasForeignKey("ReceptionId");
+
+                    b.HasOne("Clinic.DataAccess.Models.StatusAppointmentEntity", "StatusAppointment")
+                        .WithMany("Appointments")
+                        .HasForeignKey("StatusAppointmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Clinic.DataAccess.Models.TimeSlotEntity", "TimeSlot")
+                        .WithOne("Appointment")
+                        .HasForeignKey("Clinic.DataAccess.Models.AppointmentEntity", "TimeSlotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Clinic.DataAccess.Models.UserEntity", "User")
+                        .WithMany("Appointments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Reception");
+
+                    b.Navigation("StatusAppointment");
+
+                    b.Navigation("TimeSlot");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Clinic.DataAccess.Models.DepartmentEntity", b =>
@@ -551,36 +1002,9 @@ namespace Clinic.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Clinic.DataAccess.Models.ReceptionEntity", b =>
-                {
-                    b.HasOne("Clinic.DataAccess.Models.DepartmentEntity", "Department")
-                        .WithMany("Receptions")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Clinic.DataAccess.Models.EmployeeEntity", "Employee")
-                        .WithMany("Receptions")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("Clinic.DataAccess.Models.UserEntity", "User")
-                        .WithMany("Receptions")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Department");
-
-                    b.Navigation("Employee");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Clinic.DataAccess.Models.ResultICDEntity", b =>
                 {
-                    b.HasOne("Clinic.DataAccess.Models.ReceptionEntity", "Reception")
+                    b.HasOne("ReceptionEntity", "Reception")
                         .WithMany("Results")
                         .HasForeignKey("ReceptionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -602,6 +1026,28 @@ namespace Clinic.DataAccess.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Clinic.DataAccess.Models.ScheduleEntity", b =>
+                {
+                    b.HasOne("Clinic.DataAccess.Models.EmployeeEntity", "Employee")
+                        .WithMany("Schedules")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("Clinic.DataAccess.Models.TimeSlotEntity", b =>
+                {
+                    b.HasOne("Clinic.DataAccess.Models.ScheduleEntity", "Schedule")
+                        .WithMany("TimeSlots")
+                        .HasForeignKey("ScheduleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Schedule");
                 });
 
             modelBuilder.Entity("Clinic.DataAccess.Models.UserEntity", b =>
@@ -634,6 +1080,33 @@ namespace Clinic.DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ReceptionEntity", b =>
+                {
+                    b.HasOne("Clinic.DataAccess.Models.DepartmentEntity", "Department")
+                        .WithMany("Receptions")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Clinic.DataAccess.Models.EmployeeEntity", "Employee")
+                        .WithMany("Receptions")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Clinic.DataAccess.Models.UserEntity", "User")
+                        .WithMany("Receptions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Clinic.DataAccess.Models.AddressEntity", b =>
                 {
                     b.Navigation("Department");
@@ -649,6 +1122,8 @@ namespace Clinic.DataAccess.Migrations
             modelBuilder.Entity("Clinic.DataAccess.Models.EmployeeEntity", b =>
                 {
                     b.Navigation("Receptions");
+
+                    b.Navigation("Schedules");
                 });
 
             modelBuilder.Entity("Clinic.DataAccess.Models.ImageEntity", b =>
@@ -661,16 +1136,35 @@ namespace Clinic.DataAccess.Migrations
                     b.Navigation("EmployeeDepartments");
                 });
 
-            modelBuilder.Entity("Clinic.DataAccess.Models.ReceptionEntity", b =>
+            modelBuilder.Entity("Clinic.DataAccess.Models.ScheduleEntity", b =>
                 {
-                    b.Navigation("Results");
+                    b.Navigation("TimeSlots");
+                });
+
+            modelBuilder.Entity("Clinic.DataAccess.Models.StatusAppointmentEntity", b =>
+                {
+                    b.Navigation("Appointments");
+                });
+
+            modelBuilder.Entity("Clinic.DataAccess.Models.TimeSlotEntity", b =>
+                {
+                    b.Navigation("Appointment");
                 });
 
             modelBuilder.Entity("Clinic.DataAccess.Models.UserEntity", b =>
                 {
+                    b.Navigation("Appointments");
+
                     b.Navigation("Employee");
 
                     b.Navigation("Receptions");
+                });
+
+            modelBuilder.Entity("ReceptionEntity", b =>
+                {
+                    b.Navigation("Appointments");
+
+                    b.Navigation("Results");
                 });
 #pragma warning restore 612, 618
         }

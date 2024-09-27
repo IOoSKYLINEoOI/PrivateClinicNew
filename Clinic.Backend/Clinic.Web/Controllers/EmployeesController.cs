@@ -16,7 +16,7 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Policy = "ReadEmployee")]
+    [Authorize(Policy = "")]
     public async Task<ActionResult<List<EmployeeResponse>>> GetAllEmployee()
     {
         var result = await _employeeService.GetAllEmployee();

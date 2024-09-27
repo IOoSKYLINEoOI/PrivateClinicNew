@@ -6,10 +6,10 @@ public class EmployeeEntity
     public DateOnly HiringDate { get; set; }
     public DateOnly? DateOfDismissal { get; set; }
     public string? Description { get; set; }
-
     public Guid UserId { get; set; }
-    public UserEntity? User { get; set; }
 
+    public UserEntity? User { get; set; }
     public ICollection<DepartmentEntity> Departments { get; set; } = new List<DepartmentEntity>();
     public ICollection<ReceptionEntity> Receptions { get; set; } = new List<ReceptionEntity>();
+    public ICollection<ScheduleEntity> Schedules { get; set; } = new List<ScheduleEntity>();
 }

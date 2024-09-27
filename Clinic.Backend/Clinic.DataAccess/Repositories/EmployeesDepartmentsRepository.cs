@@ -16,6 +16,10 @@ public class EmployeesDepartmentsRepository : IEmployeesDepartmentsRepository
 
     public async Task Add(EmployeeDepartment employeeDepartment)
     {
+        var position = await _context.Positions
+            .FirstOrDefaultAsync(p => p.Id == employeeDepartment.PositionId)
+            ?? throw new Exception($"Position with ID {employeeDepartment.PositionId} not found.");
+
         var employeeDepartmentEntity = new EmployeeDepartmentEntity()
         {
             EmployeeId = employeeDepartment.EmployeeId,
@@ -28,11 +32,12 @@ public class EmployeesDepartmentsRepository : IEmployeesDepartmentsRepository
         await _context.SaveChangesAsync();
     }
 
+
     public async Task Update(
         Guid employeeId,
         Guid departmentId,
         string? description,
-        Guid positionId)
+        int positionId)
     {
         await _context.EmployeeDepartments
             .Where(x => x.EmployeeId == employeeId && x.DepartmentId == departmentId)

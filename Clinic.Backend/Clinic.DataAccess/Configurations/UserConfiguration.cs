@@ -11,25 +11,32 @@ public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.FirstName)
-            .HasMaxLength(30)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.LastName)
-            .HasMaxLength(30)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.FatherName)
-            .HasMaxLength(30);
+            .HasMaxLength(100);
 
         builder.Property(x => x.Email)
-            .HasMaxLength(60)
+            .HasMaxLength(250)
             .IsRequired();
+
+        builder.HasIndex(x => x.Email)
+            .IsUnique();
 
         builder.Property(x => x.PhoneNumber)
-            .HasMaxLength(11)
+            .HasMaxLength(18)
             .IsRequired();
 
+        builder.HasIndex(x => x.PhoneNumber)
+            .IsUnique();
+
         builder.Property(x => x.PasswordHash)
+            .HasMaxLength(64)
             .IsRequired();
 
         builder.HasMany(u => u.Roles)

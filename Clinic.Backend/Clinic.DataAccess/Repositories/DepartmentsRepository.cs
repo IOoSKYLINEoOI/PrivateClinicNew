@@ -16,12 +16,17 @@ public class DepartmentsRepository : IDepartmentsRepository
 
     public async Task Add(Department department)
     {
+        var address = await _context.Addresses
+        .FirstOrDefaultAsync(a => a.Id == department.AddressId)
+        ?? throw new Exception($"Address with ID {department.AddressId} not found.");
+
         var departmentEntity = new DepartmentEntity()
         {
             Id = department.Id,
             Name = department.Name,
             Description = department.Description,
             AddressId = department.AddressId,
+            Address = address
         };
 
         await _context.Departments.AddAsync(departmentEntity);

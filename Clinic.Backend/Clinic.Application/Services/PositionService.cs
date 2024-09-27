@@ -18,7 +18,7 @@ public class PositionService : IPositionService
         return Result.Success();
     }
 
-    public async Task<Result> DeletePosition(Guid id)
+    public async Task<Result> DeletePosition(int id)
     {
         await _positionsRepository.Delete(id);
         return Result.Success();
@@ -30,7 +30,7 @@ public class PositionService : IPositionService
         return Result.Success(positions);
     }
 
-    public async Task<Result> Update(Guid id, string name, string? description)
+    public async Task<Result> Update(int id, string name, string? description)
     {
         await _positionsRepository.Update(id, name, description);
         return Result.Success();

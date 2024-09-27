@@ -1,5 +1,4 @@
 ﻿using Clinic.DataAccess.Models;
-using CSharpFunctionalExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,11 +11,14 @@ public class ResultICDConfiguration : IEntityTypeConfiguration<ResultICDEntity>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.ICDCode)
-            .HasMaxLength(60)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.Description)
-            .HasMaxLength(250);
+            .HasMaxLength(255);
+
+        builder.Property(x => x.ReceptionId)
+            .IsRequired();
 
         builder.HasOne(x => x.Reception)
             .WithMany(x => x.Results)

@@ -16,13 +16,17 @@ public class EmployeesRepository : IEmployeesRepository
 
     public async Task Add(Employee employee)
     {
+        var user = await _context.Users
+        .FirstOrDefaultAsync(u => u.Id == employee.UserId)
+        ?? throw new Exception($"User with ID {employee.UserId} not found.");
+
         var employeeEntity = new EmployeeEntity()
         {
             Id = employee.Id,
             HiringDate = employee.HiringDate,
             DateOfDismissal = employee.DateOfDismissal,
             UserId = employee.UserId,
-            Description = employee.Description
+            Description = employee.Description,
         };
 
         await _context.Employees.AddAsync(employeeEntity);

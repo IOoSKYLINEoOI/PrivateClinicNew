@@ -2,8 +2,6 @@
 using Clinic.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
 
 public class PolicyProvider
 {
@@ -21,6 +19,9 @@ public class PolicyProvider
             throw new InvalidOperationException("RolePermissionsOptions is not initialized.");
         }
 
+        var permissionToRolesMap = new Dictionary<Permission, List<string>>();
+
+        // Собираем роли для каждого разрешения
         foreach (var rolePermission in _rolePermissionsOptions.RolePermissions)
         {
             var role = rolePermission.Role;
@@ -29,29 +30,43 @@ public class PolicyProvider
             {
                 if (Enum.TryParse(permission, out Permission parsedPermission))
                 {
-                    var policyName = parsedPermission.ToString();
-
-                    // Проверка, существует ли уже политика с таким именем
-                    if (options.GetPolicy(policyName) != null)
+                    if (!permissionToRolesMap.ContainsKey(parsedPermission))
                     {
-                        Console.WriteLine($"Policy already exists: {policyName}");
-                        continue;
+                        permissionToRolesMap[parsedPermission] = new List<string>();
                     }
 
-                    // Добавление новой политики
-                    options.AddPolicy(policyName, policy =>
-                    {
-                        policy.RequireRole(role);
-                        policy.Requirements.Add(new PermissionRequirement(new[] { parsedPermission }));
-                    });
-
-                    Console.WriteLine($"Policy registered: {policyName}");
+                    permissionToRolesMap[parsedPermission].Add(role);
                 }
                 else
                 {
                     throw new ArgumentException($"Invalid permission: {permission}");
                 }
             }
+        }
+
+        // Регистрируем политики на основе карты "разрешение -> роли"
+        foreach (var kvp in permissionToRolesMap)
+        {
+            var permission = kvp.Key;
+            var roles = kvp.Value;
+
+            var policyName = permission.ToString();
+
+            // Проверка, существует ли уже политика с таким именем
+            if (options.GetPolicy(policyName) != null)
+            {
+                Console.WriteLine($"Policy already exists: {policyName}");
+                continue;
+            }
+
+            // Добавление новой политики
+            options.AddPolicy(policyName, policy =>
+            {
+                //policy.RequireRole(roles);
+                policy.Requirements.Add(new PermissionRequirement(new[] { permission }));
+            });
+
+            Console.WriteLine($"Policy registered: {policyName} for roles: {string.Join(", ", roles)}");
         }
     }
 }
