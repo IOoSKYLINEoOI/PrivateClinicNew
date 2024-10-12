@@ -14,11 +14,23 @@ public class DepartmentsRepository : IDepartmentsRepository
         _context = context;
     }
 
-    public async Task Add(Department department)
+    public async Task Add(Department department, Address address)
     {
-        var address = await _context.Addresses
-        .FirstOrDefaultAsync(a => a.Id == department.AddressId)
-        ?? throw new Exception($"Address with ID {department.AddressId} not found.");
+
+        var addressEntity = new AddressEntity()
+        {
+            Country = address.Country,
+            Region = address.Region,
+            City = address.City,
+            Street = address.Street,
+            HouseNumber = address.HouseNumber,
+            ApartmentNumber = address.ApartmentNumber,
+            Description = address.Description,
+            Pavilion = address.Pavilion,
+        };
+
+        await _context.Addresses.AddAsync(addressEntity);
+        await _context.SaveChangesAsync();
 
         var departmentEntity = new DepartmentEntity()
         {
@@ -26,26 +38,62 @@ public class DepartmentsRepository : IDepartmentsRepository
             Name = department.Name,
             Description = department.Description,
             AddressId = department.AddressId,
-            Address = address
+            Address = addressEntity
         };
 
         await _context.Departments.AddAsync(departmentEntity);
         await _context.SaveChangesAsync();
     }
 
-    public async Task Update(
-        Guid id,
-        string name,
-        string? description,
-        Guid addressId)
+    public async Task Update(Department department, Address address)
     {
-        await _context.Departments
-            .Where(x => x.Id == id)
-            .ExecuteUpdateAsync(s => s
-                .SetProperty(x => x.Name, name)
-                .SetProperty(x => x.Description, description)
-                .SetProperty(x => x.AddressId, addressId));
+        var departmentEntity = await _context.Departments
+            .FirstOrDefaultAsync(d => d.Id == department.Id);
+
+        if (departmentEntity == null)
+        {
+            throw new Exception($"Department with ID {department.Id} not found.");
+        }
+
+        departmentEntity.Name = department.Name;
+        departmentEntity.Description = department.Description;
+
+        var addressEntity = await _context.Addresses
+            .FirstOrDefaultAsync(a => a.Id == department.AddressId);
+
+        if (addressEntity == null)
+        {
+            addressEntity = new AddressEntity
+            {
+                Country = address.Country,
+                Region = address.Region,
+                City = address.City,
+                Street = address.Street,
+                HouseNumber = address.HouseNumber,
+                ApartmentNumber = address.ApartmentNumber,
+                Description = address.Description,
+                Pavilion = address.Pavilion
+            };
+
+            await _context.Addresses.AddAsync(addressEntity);
+        }
+        else
+        {
+            addressEntity.Country = address.Country;
+            addressEntity.Region = address.Region;
+            addressEntity.City = address.City;
+            addressEntity.Street = address.Street;
+            addressEntity.HouseNumber = address.HouseNumber;
+            addressEntity.ApartmentNumber = address.ApartmentNumber;
+            addressEntity.Description = address.Description;
+            addressEntity.Pavilion = address.Pavilion;
+        }
+
+        departmentEntity.AddressId = addressEntity.Id;
+
+        await _context.SaveChangesAsync(); 
     }
+
 
     public async Task<List<Department>> GetAll()
     {

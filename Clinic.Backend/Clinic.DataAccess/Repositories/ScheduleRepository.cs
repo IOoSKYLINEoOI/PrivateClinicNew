@@ -51,7 +51,7 @@ public class ScheduleRepository : IScheduleRepository
         return Result.Success(schedule);
     }
 
-    public async Task<Result<List<Schedule>>> GetAll()
+    public async Task<List<Schedule>> GetAll()
     {
         var scheduleEntities = await _context.Schedules
             .AsNoTracking()
@@ -66,7 +66,7 @@ public class ScheduleRepository : IScheduleRepository
                 se.EndTime).Value)
             .ToList();
 
-        return Result.Success(schedules);
+        return schedules;
     }
 
     public async Task<Result> Update(Schedule schedule)

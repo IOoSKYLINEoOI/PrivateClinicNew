@@ -12,9 +12,9 @@ public class DepartmentService : IDepartmentService
         _departmentRepository = departmentsRepository;
     }
 
-    public async Task<Result> AddDepartment(Department department)
+    public async Task<Result> AddDepartment(Department department, Address address)
     {
-        await _departmentRepository.Add(department);
+        await _departmentRepository.Add(department, address);
         return Result.Success();
     }
 
@@ -24,13 +24,9 @@ public class DepartmentService : IDepartmentService
         return Result.Success(departments);
     }
 
-    public async Task<Result> UpdateDepartment(
-        Guid id,
-        string name,
-        string? description,
-        Guid addressId)
+    public async Task<Result> UpdateDepartment(Department department, Address address)
     {
-        await _departmentRepository.Update(id, name, description, addressId);
+        await _departmentRepository.Update(department, address);
         return Result.Success();
     }
 

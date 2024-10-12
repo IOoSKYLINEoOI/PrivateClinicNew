@@ -1,0 +1,58 @@
+.carousel {
+  position: relative;
+}
+
+.carouselSlide {
+  position: relative;
+  height: 60vh;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carouselContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон для текста */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.section {
+  padding: 60px 20px;
+}
+
+.card {
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.cardIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.aboutImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.testimonialCard {
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 150px;
+}

@@ -30,48 +30,46 @@ namespace Clinic.DataAccess.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(Guid id, Appointment updatedAppointment)
+        public async Task Update(
+            Guid id,
+            Guid userId,
+            Guid receptionId,
+            Guid timeSlotId,
+            DateTime dateOfBooking,
+            int statusAppointmentId)
         {
-            var existingAppointment = await _context.Appointments.FindAsync(id);
-            if (existingAppointment == null)
-            {
-                throw new Exception($"Appointment with ID {id} not found.");
-            }
-
-            existingAppointment.UserId = updatedAppointment.UserId;
-            existingAppointment.ReceptionId = updatedAppointment.ReceptionId;
-            existingAppointment.TimeSlotId = updatedAppointment.TimeSlotId;
-            existingAppointment.DateOfBooking = updatedAppointment.DateOfBooking;
-            existingAppointment.StatusAppointmentId = updatedAppointment.StatusAppointmentId;
-
-            await _context.SaveChangesAsync();
+            await _context.Appointments
+                .Where(x => x.Id == id)
+                .ExecuteUpdateAsync(s => s
+                    .SetProperty(x => x.UserId, userId)
+                    .SetProperty(x => x.ReceptionId, receptionId)
+                    .SetProperty(x => x.TimeSlotId, timeSlotId)
+                    .SetProperty(x => x.DateOfBooking, dateOfBooking)
+                    .SetProperty(x => x.StatusAppointmentId, statusAppointmentId));
         }
 
-        public async Task<Appointment?> GetById(Guid id)
+        public async Task<Appointment> GetById(Guid id)
         {
             var appointmentEntity = await _context.Appointments
                 .AsNoTracking()
-                .FirstOrDefaultAsync(a => a.Id == id);
+                .FirstOrDefaultAsync(a => a.Id == id) ?? throw new Exception($"Appointment with ID {id} not found.");
 
-            return appointmentEntity == null ? null : new Appointment(
+            var appointment = Appointment.Create(
                 appointmentEntity.Id,
                 appointmentEntity.UserId,
                 appointmentEntity.ReceptionId,
                 appointmentEntity.TimeSlotId,
                 appointmentEntity.DateOfBooking,
-                appointmentEntity.StatusAppointmentId);
+                appointmentEntity.StatusAppointmentId).Value;
+
+            return appointment;
         }
 
         public async Task Delete(Guid id)
         {
-            var existingAppointment = await _context.Appointments.FindAsync(id);
-            if (existingAppointment == null)
-            {
-                throw new Exception($"Appointment with ID {id} not found.");
-            }
-
-            _context.Appointments.Remove(existingAppointment);
-            await _context.SaveChangesAsync();
+            await _context.Appointments
+                .Where(x => x.Id == id)
+                .ExecuteDeleteAsync();
         }
 
         public async Task<List<Appointment>> GetAll()
@@ -80,13 +78,11 @@ namespace Clinic.DataAccess.Repositories
                 .AsNoTracking()
                 .ToListAsync();
 
-            return appointmentEntities.Select(a => new Appointment(
-                a.Id,
-                a.UserId,
-                a.ReceptionId,
-                a.TimeSlotId,
-                a.DateOfBooking,
-                a.StatusAppointmentId)).ToList();
+            var appointments = appointmentEntities
+                .Select(a => Appointment.Create(a.Id, a.UserId, a.ReceptionId, a.TimeSlotId, a.DateOfBooking, a.StatusAppointmentId).Value)
+                .ToList();
+
+            return appointments;
         }
     }
 }

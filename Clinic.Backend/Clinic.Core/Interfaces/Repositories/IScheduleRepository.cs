@@ -10,7 +10,7 @@ public interface IScheduleRepository
 {
     Task<Result> Add(Schedule schedule);
     Task<Result<Schedule>> GetById(Guid id);
-    Task<Result<List<Schedule>>> GetAll();
+    Task<List<Schedule>> GetAll();
     Task<Result> Update(Schedule schedule);
     Task<Result> Delete(Guid id);
 }
