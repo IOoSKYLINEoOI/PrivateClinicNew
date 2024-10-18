@@ -4,9 +4,6 @@ using Clinic.Web.Contracts.Addresses;
 using Clinic.Web.Contracts.Departments;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics.Metrics;
-using System.Drawing;
-using System.IO;
 
 [ApiController]
 [Route("departments")]
@@ -28,14 +25,28 @@ public class DepartmentsController : ControllerBase
             return BadRequest(result.Error);
         }
 
-        var response = result.Value.Select(y => new DepartmentResponse(y.Id, y.Name, y.Description, y.AddressId)).ToList();
+        var response = result.Value.Select(department => new DepartmentResponse(
+            department.Id,
+            department.Name,
+            department.Description,
+            new AddressResponse(
+                department.Address.Id,
+                department.Address.Country,
+                department.Address.Region,
+                department.Address.City,
+                department.Address.Street,
+                department.Address.HouseNumber,
+                department.Address.ApartmentNumber,
+                department.Address.Description,
+                department.Address.Pavilion
+            )
+        )).ToList();
 
         return Ok(response);
     }
 
     [HttpPost]
-    [Authorize(Policy = "AdminPolicy")]
-    [HttpPost]
+    //[Authorize(Policy = "AdminPolicy")]
     public async Task<ActionResult> CreateDepartment([FromBody] DepartmentRequest request)
     {
         // Проверяем, что запрос не null
@@ -67,7 +78,7 @@ public class DepartmentsController : ControllerBase
             Guid.NewGuid(),
             request.Name,
             request.Description,
-            resAddress.Value.Id 
+            resAddress.Value // Здесь мы передаем объект Address, а не его Id
         );
 
         if (resDepartment.IsFailure)
@@ -75,27 +86,21 @@ public class DepartmentsController : ControllerBase
             return BadRequest(resDepartment.Error);
         }
 
-
         var addResult = await _departmentService.AddDepartment(resDepartment.Value, resAddress.Value);
         if (addResult.IsFailure)
         {
             return BadRequest(addResult.Error);
         }
 
-        return Ok(resDepartment.Value.Id); 
+        return Ok(resDepartment.Value.Id);
     }
-
 
     [HttpPut("{id:guid}")]
     public async Task<ActionResult<Guid>> UpdateDepartment(Guid id, [FromBody] DepartmentRequest request)
     {
-        if (request == null)
-        {
-            return BadRequest("Invalid department request");
-        }
 
         var resAddress = Address.Create(
-            Guid.NewGuid(),
+            id,
             request.Address.Country,
             request.Address.Region,
             request.Address.City,
@@ -112,10 +117,10 @@ public class DepartmentsController : ControllerBase
         }
 
         var resDepartment = Department.Create(
-            Guid.NewGuid(),
+            id, 
             request.Name,
             request.Description,
-            resAddress.Value.Id 
+            resAddress.Value
         );
 
         if (resDepartment.IsFailure)
@@ -123,10 +128,10 @@ public class DepartmentsController : ControllerBase
             return BadRequest(resDepartment.Error);
         }
 
-        var addResult = await _departmentService.UpdateDepartment(resDepartment.Value, resAddress.Value);
-        if (addResult.IsFailure)
+        var updateResult = await _departmentService.UpdateDepartment(resDepartment.Value, resAddress.Value);
+        if (updateResult.IsFailure)
         {
-            return BadRequest(addResult.Error);
+            return BadRequest(updateResult.Error);
         }
 
         return Ok(id);

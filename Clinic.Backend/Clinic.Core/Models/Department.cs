@@ -1,38 +1,38 @@
 ﻿using CSharpFunctionalExtensions;
 
-namespace Clinic.Core.Models;
-
-public class Department
+namespace Clinic.Core.Models
 {
-    public const int MaxDepartmentLength = 60;
-    public const int MaxDescriptionDepartmentLength = 250;
-
-    private Department(Guid id, string name, string? description, Guid addressId)
+    public class Department
     {
-        Id = id;
-        Name = name;
-        Description = description;
-        AddressId = addressId;
-    }
+        public const int MaxDepartmentLength = 60;
+        public const int MaxDescriptionDepartmentLength = 250;
 
-    public Guid Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public string? Description { get; set; }
-    public Guid AddressId { get; set; }
-
-    public static Result<Department> Create(Guid id, string name, string? description, Guid addressId)
-    {
-        if (string.IsNullOrEmpty(name) || name.Length > MaxDepartmentLength)
+        private Department(Guid id, string name, string? description, Address address)
         {
-            return Result.Failure<Department>($"'{nameof(name)}' cannot be null, empty or more than {MaxDepartmentLength} characters.");
-        }
-        if (!string.IsNullOrEmpty(description) && description.Length > MaxDescriptionDepartmentLength)
-        {
-            return Result.Failure<Department>($"'{nameof(description)}' cannot be more than {MaxDescriptionDepartmentLength} characters.");
+            Id = id;
+            Name = name;
+            Description = description;
+            Address = address;
         }
 
-        var department = new Department(id, name, description, addressId);
+        public Guid Id { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public string? Description { get; private set; }
+        public Address Address { get; private set; }
 
-        return Result.Success(department);
+        public static Result<Department> Create(Guid id, string name, string? description, Address address)
+        {
+            if (string.IsNullOrEmpty(name) || name.Length > MaxDepartmentLength)
+            {
+                return Result.Failure<Department>($"'{nameof(name)}' cannot be null, empty or more than {MaxDepartmentLength} characters.");
+            }
+            if (!string.IsNullOrEmpty(description) && description.Length > MaxDescriptionDepartmentLength)
+            {
+                return Result.Failure<Department>($"'{nameof(description)}' cannot be more than {MaxDescriptionDepartmentLength} characters.");
+            }
+
+            var department = new Department(id, name, description, address);
+            return Result.Success(department);
+        }
     }
 }

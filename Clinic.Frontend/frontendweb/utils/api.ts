@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000', // Замените на ваш базовый URL
+  baseURL: 'https://localhost:7179', // Замените на ваш базовый URL
   withCredentials: true, // Чтобы отправлять JWT из куки
 });
 

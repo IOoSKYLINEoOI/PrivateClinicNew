@@ -1,6 +1,7 @@
 ﻿using Clinic.Application.Services;
 using Clinic.Core.Interfaces.Repositories;
 using Clinic.Core.Models;
+using Clinic.DataAccess.Repositories;
 using CSharpFunctionalExtensions;
 
 public class DepartmentService : IDepartmentService
@@ -22,6 +23,16 @@ public class DepartmentService : IDepartmentService
     {
         var departments = await _departmentRepository.GetAll();
         return Result.Success(departments);
+    }
+
+    public async Task<Result<Department>> GetDepartmentById(Guid id)
+    {
+        var department = await _departmentRepository.GetById(id);
+        if (department == null)
+        {
+            return Result.Failure<Department>("Department not found");
+        }
+        return Result.Success(department);
     }
 
     public async Task<Result> UpdateDepartment(Department department, Address address)

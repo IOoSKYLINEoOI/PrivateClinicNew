@@ -74,15 +74,16 @@ app.UseCookiePolicy(new CookiePolicyOptions
     Secure = CookieSecurePolicy.Always
 });
 
-// Настройка маршрутизации
-app.UseRouting();
-
 app.UseCors(x =>
 {
-    x.WithHeaders().AllowAnyHeader();
+    x.AllowAnyHeader();
     x.WithOrigins("http://localhost:3000");
-    x.WithMethods().AllowAnyMethod();
+    x.AllowAnyMethod();
+    x.AllowCredentials();
 });
+
+// Настройка маршрутизации
+app.UseRouting();
 
 // Использование аутентификации и авторизации
 app.UseAuthentication();

@@ -8,4 +8,5 @@ public interface IDepartmentsRepository
     Task Delete(Guid id);
     Task<List<Department>> GetAll();
     Task Update(Department department, Address address);
+    Task<Department> GetById(Guid id);
 }

@@ -1,0 +1,18 @@
+.container {
+    padding: 24px;
+}
+  
+.departmentCard {
+    transition: transform 0.2s;
+    margin-bottom: 16px;
+}
+  
+.departmentCard:hover {
+    transform: scale(1.05);
+}
+
+.title {
+    padding: 24px;
+    text-align: center;
+}
+  

@@ -1,19 +1,13 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Table, Button, Modal, Space, Popconfirm, message } from 'antd';
-import { ColumnsType } from 'antd/es/table';
-import { DepartmentRequest, DepartmentResponse } from '@/models/Department';
-import { createDepartment, deleteDepartment, getDepartments, updateDepartment } from '@/utils/api';
-import DepartmentForm from '@/components/departments/DepartmentForm';
-
-
-
+import { Card, Col, Row, Spin, message } from 'antd';
+import { DepartmentResponse } from '@/models/Department';
+import { getDepartments } from '@/utils/api';
+import styles from './page.module.css';
 
 const DepartmentsPage: React.FC = () => {
   const [departments, setDepartments] = useState<DepartmentResponse[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-  const [editingDepartment, setEditingDepartment] = useState<DepartmentResponse | null>(null);
 
   const fetchDepartments = async () => {
     setLoading(true);
@@ -31,153 +25,28 @@ const DepartmentsPage: React.FC = () => {
     fetchDepartments();
   }, []);
 
-  const handleCreate = () => {
-    setEditingDepartment(null);
-    setIsModalVisible(true);
-  };
-
-  const handleEdit = (department: DepartmentResponse) => {
-    setEditingDepartment(department);
-    setIsModalVisible(true);
-  };
-
-  const handleDelete = async (id: string) => {
-    try {
-      await deleteDepartment(id);
-      message.success('Департамент удален');
-      fetchDepartments();
-    } catch (error) {
-      message.error('Не удалось удалить департамент');
-    }
-  };
-
-  const handleSubmit = async (values: DepartmentRequest) => {
-    try {
-      if (editingDepartment) {
-        await updateDepartment(editingDepartment.id, values);
-        message.success('Департамент обновлен');
-      } else {
-        await createDepartment(values);
-        message.success('Департамент создан');
-      }
-      setIsModalVisible(false);
-      fetchDepartments();
-    } catch (error) {
-      message.error('Не удалось сохранить департамент');
-    }
-  };
-
-  const columns: ColumnsType<DepartmentResponse> = [
-    {
-      title: 'Название',
-      dataIndex: 'name',
-      key: 'name',
-    },
-    {
-      title: 'Описание',
-      dataIndex: 'description',
-      key: 'description',
-    },
-    {
-      title: 'Страна',
-      dataIndex: ['address', 'country'],
-      key: 'country',
-    },
-    {
-      title: 'Регион',
-      dataIndex: ['address', 'region'],
-      key: 'region',
-    },
-    {
-      title: 'Город',
-      dataIndex: ['address', 'city'],
-      key: 'city',
-    },
-    {
-      title: 'Улица',
-      dataIndex: ['address', 'street'],
-      key: 'street',
-    },
-    {
-      title: 'Номер дома',
-      dataIndex: ['address', 'houseNumber'],
-      key: 'houseNumber',
-    },
-    {
-      title: 'Номер квартиры',
-      dataIndex: ['address', 'apartmentNumber'],
-      key: 'apartmentNumber',
-    },
-    {
-      title: 'Павильон',
-      dataIndex: ['address', 'pavilion'],
-      key: 'pavilion',
-    },
-    {
-      title: 'Действия',
-      key: 'actions',
-      render: (_, record) => (
-        <Space size="middle">
-          <Button type="link" onClick={() => handleEdit(record)}>
-            Редактировать
-          </Button>
-          <Popconfirm
-            title="Вы уверены, что хотите удалить этот департамент?"
-            onConfirm={() => handleDelete(record.id)}
-            okText="Да"
-            cancelText="Нет"
-          >
-            <Button type="link" danger>
-              Удалить
-            </Button>
-          </Popconfirm>
-        </Space>
-      ),
-    },
-  ];
-
   return (
-    <div style={{ padding: '24px' }}>
-      <h1>Департаменты</h1>
-      <Button type="primary" onClick={handleCreate} style={{ marginBottom: '16px' }}>
-        Добавить департамент
-      </Button>
-      <Table
-        dataSource={departments}
-        columns={columns}
-        rowKey="id"
-        loading={loading}
-      />
-
-      <Modal
-        title={editingDepartment ? 'Редактировать департамент' : 'Создать департамент'}
-        visible={isModalVisible}
-        onCancel={() => setIsModalVisible(false)}
-        footer={null}
-      >
-        <DepartmentForm
-          initialValues={
-            editingDepartment
-              ? {
-                  name: editingDepartment.name,
-                  description: editingDepartment.description,
-                  address: {
-                    country: editingDepartment.address.country,
-                    region: editingDepartment.address.region,
-                    city: editingDepartment.address.city,
-                    street: editingDepartment.address.street,
-                    houseNumber: editingDepartment.address.houseNumber,
-                    apartmentNumber: editingDepartment.address.apartmentNumber,
-                    description: editingDepartment.address.description,
-                    pavilion: editingDepartment.address.pavilion,
-                  },
-                }
-              : undefined
-          }
-          onSubmit={handleSubmit}
-          onCancel={() => setIsModalVisible(false)}
-        />
-      </Modal>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Наши отделения</h1>
+      {loading ? (
+        <Spin />
+      ) : (
+        <Row gutter={16}>
+          {departments.map((department) => (
+            <Col span={8} key={department.id}>
+              <Card
+                title={department.name}
+                className={styles.departmentCard}
+                hoverable
+                onClick={() => message.info(`Вы выбрали: ${department.name}`)}
+              >
+                <p><strong>Описание:</strong> {department.description}</p>
+                <p><strong>Адрес:</strong> {`${department.address.country}, ${department.address.region}, ${department.address.city}, ${department.address.street}, ${department.address.houseNumber}, ${department.address.apartmentNumber}, ${department.address.pavilion}`}</p>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      )}
     </div>
   );
 };

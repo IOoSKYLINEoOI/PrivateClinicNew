@@ -1,14 +1,13 @@
 ﻿using Clinic.Core.Models;
 using CSharpFunctionalExtensions;
-using System.Net;
+using System;
+using System.Threading.Tasks;
 
-namespace Clinic.Application.Services
+public interface IDepartmentService
 {
-    public interface IDepartmentService
-    {
-        Task<Result> AddDepartment(Department department, Address address);
-        Task<Result> DeleteDepartment(Guid id);
-        Task<Result<List<Department>>> GetAllDepartment();
-        Task<Result> UpdateDepartment(Department department, Address address);
-    }
+    Task<Result<List<Department>>> GetAllDepartment();
+    Task<Result<Department>> GetDepartmentById(Guid id); // Добавьте эту строку
+    Task<Result> AddDepartment(Department department, Address address);
+    Task<Result> UpdateDepartment(Department department, Address address);
+    Task<Result> DeleteDepartment(Guid id);
 }
