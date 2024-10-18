@@ -1,303 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\",
+  "WorkspaceRootPath": "C:\\Project.Clinic\\Clinic.Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.web\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.web\\controllers\\addressescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\controllers\\addressescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.dataaccess\\models\\addressentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\models\\addressentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.dataaccess\\repositories\\departmentsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\repositories\\departmentsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.dataaccess\\models\\appointmententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\models\\appointmententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.application\\services\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|solutionrelative:clinic.application\\services\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.dataaccess\\models\\departmententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\models\\departmententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.dataaccess\\repositories\\addressesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\repositories\\addressesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.core\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.core\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{834BF153-303D-4667-8C42-94128293859D}|Clinic.Core\\Clinic.Core.csproj|solutionrelative:clinic.core\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.web\\contracts\\addresses\\addressresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\contracts\\addresses\\addressresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.dataaccess\\repositories\\employeesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\repositories\\employeesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.dataaccess\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FECFBD2C-0B6E-43D4-ACD4-FCE9F5C5F7A5}|Clinic.DataAccess\\Clinic.DataAccess.csproj|solutionrelative:clinic.dataaccess\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.web\\contracts\\departments\\departmentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\contracts\\departments\\departmentresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.web\\contracts\\departments\\departmentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\contracts\\departments\\departmentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|d:\\projectclinic\\privateclinicnew\\clinic.backend\\clinic.application\\services\\addressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9195B40B-4848-4DF6-AB6F-5B672F8C1512}|Clinic.Application\\Clinic.Application.csproj|solutionrelative:clinic.application\\services\\addressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|c:\\project.clinic\\clinic.backend\\clinic.web\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA2273F-B5C4-445F-8C81-EEA271EAC1D7}|Clinic.Web\\Clinic.Web.csproj|solutionrelative:clinic.web\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppointmentEntity.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Models\\AppointmentEntity.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\Models\\AppointmentEntity.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Models\\AppointmentEntity.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\Models\\AppointmentEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T13:15:26.377Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AddressEntity.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Models\\AddressEntity.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\Models\\AddressEntity.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Models\\AddressEntity.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\Models\\AddressEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T13:14:52.218Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "EmployeesRepository.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\EmployeesRepository.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\Repositories\\EmployeesRepository.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\EmployeesRepository.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\Repositories\\EmployeesRepository.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwDYAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T09:22:28.656Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AddressesRepository.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\AddressesRepository.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\Repositories\\AddressesRepository.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\AddressesRepository.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\Repositories\\AddressesRepository.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwC0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T21:38:11.234Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DepartmentEntity.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Models\\DepartmentEntity.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\Models\\DepartmentEntity.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Models\\DepartmentEntity.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\Models\\DepartmentEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T21:18:17.05Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DepartmentsRepository.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\DepartmentsRepository.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\Repositories\\DepartmentsRepository.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\DepartmentsRepository.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\Repositories\\DepartmentsRepository.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAowD0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T18:07:05.974Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AddressResponse.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Contracts\\Addresses\\AddressResponse.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Contracts\\Addresses\\AddressResponse.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Contracts\\Addresses\\AddressResponse.cs",
-              "RelativeToolTip": "Clinic.Web\\Contracts\\Addresses\\AddressResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T18:03:02.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DepartmentService.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Application\\Services\\DepartmentService.cs",
-              "RelativeDocumentMoniker": "Clinic.Application\\Services\\DepartmentService.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Application\\Services\\DepartmentService.cs",
-              "RelativeToolTip": "Clinic.Application\\Services\\DepartmentService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T18:00:09.852Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DepartmentsController.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Controllers\\DepartmentsController.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Controllers\\DepartmentsController.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Controllers\\DepartmentsController.cs",
-              "RelativeToolTip": "Clinic.Web\\Controllers\\DepartmentsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAaAAAAAAAAAA==",
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Clinic.Web\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Project.Clinic\\Clinic.Backend\\Clinic.Web\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Clinic.Web\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAIwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T17:53:22.528Z",
+              "WhenOpened": "2024-10-18T10:51:43.503Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Program.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Program.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Program.cs",
-              "RelativeToolTip": "Clinic.Web\\Program.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T15:48:01.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Department.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Core\\Models\\Department.cs",
-              "RelativeDocumentMoniker": "Clinic.Core\\Models\\Department.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Core\\Models\\Department.cs",
-              "RelativeToolTip": "Clinic.Core\\Models\\Department.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAcwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T13:38:26.616Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "UsersRepository.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\UsersRepository.cs",
-              "RelativeDocumentMoniker": "Clinic.DataAccess\\Repositories\\UsersRepository.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.DataAccess\\Repositories\\UsersRepository.cs",
-              "RelativeToolTip": "Clinic.DataAccess\\Repositories\\UsersRepository.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T12:36:46.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddressesController.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Controllers\\AddressesController.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Controllers\\AddressesController.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Controllers\\AddressesController.cs",
-              "RelativeToolTip": "Clinic.Web\\Controllers\\AddressesController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwDwAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T18:02:58.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Address.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Core\\Models\\Address.cs",
-              "RelativeDocumentMoniker": "Clinic.Core\\Models\\Address.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Core\\Models\\Address.cs",
-              "RelativeToolTip": "Clinic.Core\\Models\\Address.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T13:38:19.868Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DepartmentResponse.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Contracts\\Departments\\DepartmentResponse.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Contracts\\Departments\\DepartmentResponse.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Contracts\\Departments\\DepartmentResponse.cs",
-              "RelativeToolTip": "Clinic.Web\\Contracts\\Departments\\DepartmentResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T18:01:52.811Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AddressService.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Application\\Services\\AddressService.cs",
-              "RelativeDocumentMoniker": "Clinic.Application\\Services\\AddressService.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Application\\Services\\AddressService.cs",
-              "RelativeToolTip": "Clinic.Application\\Services\\AddressService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T17:59:52.391Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "DepartmentRequest.cs",
-              "DocumentMoniker": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Contracts\\Departments\\DepartmentRequest.cs",
-              "RelativeDocumentMoniker": "Clinic.Web\\Contracts\\Departments\\DepartmentRequest.cs",
-              "ToolTip": "D:\\ProjectClinic\\PrivateClinicNew\\Clinic.Backend\\Clinic.Web\\Contracts\\Departments\\DepartmentRequest.cs",
-              "RelativeToolTip": "Clinic.Web\\Contracts\\Departments\\DepartmentRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T17:54:52.565Z"
             }
           ]
         }
