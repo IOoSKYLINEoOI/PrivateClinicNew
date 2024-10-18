@@ -1,12 +1,12 @@
 // app/ClientLayout.tsx
 'use client';
 
-import { useState } from 'react'; // Для управления состоянием модального окна
 import { Layout, Menu, Button } from 'antd';
 import { UserOutlined, ScheduleOutlined, SettingOutlined, FacebookFilled, InstagramFilled, TwitterSquareFilled } from '@ant-design/icons';
+import { useState } from 'react';
 import styles from './ClientLayout.module.css';
 import Link from 'next/link';
-import AuthModal from './auth/AuthModal'; // Импорт модального окна
+import AuthModal from './auth/AuthModal';
 
 const { Header, Content, Footer } = Layout;
 
@@ -18,16 +18,10 @@ const menuItems = [
 ];
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  const [isModalVisible, setIsModalVisible] = useState(false); // Управление состоянием модального окна
+  const [isAuthModalVisible, setAuthModalVisible] = useState(false);
 
-  // Функции для открытия и закрытия модального окна
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalVisible(false);
-  };
+  const showAuthModal = () => setAuthModalVisible(true);
+  const closeAuthModal = () => setAuthModalVisible(false);
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -45,17 +39,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             </Menu.Item>
           ))}
         </Menu>
-
-        {/* Кнопка для входа/регистрации */}
-        <Button type="primary" onClick={showModal}>
+        <Button type="primary" onClick={showAuthModal}>
           Вход / Регистрация
         </Button>
+        <AuthModal isVisible={isAuthModalVisible} onClose={closeAuthModal} />
       </Header>
-
       <Content className={styles.content}>
         {children}
       </Content>
-
       <Footer className={styles.footer}>
         <div className={styles.footerContainer}>
           <div className={styles.footerSection}>
@@ -76,9 +67,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           </div>
         </div>
       </Footer>
-
-      {/* Модальное окно для входа/регистрации */}
-      <AuthModal visible={isModalVisible} onClose={handleCloseModal} />
     </Layout>
   );
 }

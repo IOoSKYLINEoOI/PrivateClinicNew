@@ -1,119 +1,85 @@
-// components/AuthModal.tsx
-import React, { useState } from 'react';
+// app/auth/AuthModal.tsx
+import { useState } from 'react';
 import { Modal, Form, Input, Button, Tabs } from 'antd';
-import axios from 'axios';
-
-const { TabPane } = Tabs;
+import { loginUser, registerUser } from '@/utils/api';
+import { RegisterUserRequest, LoginUserRequest } from '@/models/User';
 
 interface AuthModalProps {
-  visible: boolean;
+  isVisible: boolean;
   onClose: () => void;
 }
 
-const AuthModal: React.FC<AuthModalProps> = ({ visible, onClose }) => {
-  const [isLoading, setIsLoading] = useState(false);
+const AuthModal: React.FC<AuthModalProps> = ({ isVisible, onClose }) => {
+  const [loading, setLoading] = useState(false);
 
-  // Форма входа
-  const handleLogin = async (values: any) => {
-    setIsLoading(true);
+  // Обработка входа
+  const handleLogin = async (values: LoginUserRequest) => {
     try {
-      // При успешном входе сервер отправит JWT в куки
-      await axios.post('/users/login', values, { withCredentials: true });
-      onClose();  // Закрыть модальное окно после успешного входа
+      setLoading(true);
+      await loginUser(values);
+      onClose();
     } catch (error) {
-      console.error('Login failed:', error);
+      console.error('Ошибка входа:', error);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
-  // Форма регистрации
-  const handleRegister = async (values: any) => {
-    setIsLoading(true);
+  // Обработка регистрации
+  const handleRegister = async (values: RegisterUserRequest) => {
     try {
-      await axios.post('/users/register', values);
-      // После успешной регистрации можно открыть форму для входа
+      setLoading(true);
+      await registerUser(values);
       onClose();
     } catch (error) {
-      console.error('Registration failed:', error);
+      console.error('Ошибка регистрации:', error);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   return (
-    <Modal visible={visible} onCancel={onClose} footer={null}>
+    <Modal visible={isVisible} onCancel={onClose} footer={null}>
       <Tabs defaultActiveKey="1">
-        {/* Вкладка для входа */}
-        <TabPane tab="Вход" key="1">
-          <Form layout="vertical" onFinish={handleLogin}>
-            <Form.Item
-              label="Email"
-              name="Email"
-              rules={[{ required: true, message: 'Пожалуйста, введите ваш email' }]}
-            >
+        <Tabs.TabPane tab="Вход" key="1">
+          <Form onFinish={handleLogin} layout="vertical">
+            <Form.Item name="email" label="Email" rules={[{ required: true, message: 'Введите Email' }]}>
               <Input />
             </Form.Item>
-            <Form.Item
-              label="Пароль"
-              name="Password"
-              rules={[{ required: true, message: 'Пожалуйста, введите ваш пароль' }]}
-            >
+            <Form.Item name="password" label="Пароль" rules={[{ required: true, message: 'Введите пароль' }]}>
               <Input.Password />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" htmlType="submit" loading={isLoading}>
+              <Button type="primary" htmlType="submit" loading={loading} block>
                 Войти
               </Button>
             </Form.Item>
           </Form>
-        </TabPane>
-
-        {/* Вкладка для регистрации */}
-        <TabPane tab="Регистрация" key="2">
-          <Form layout="vertical" onFinish={handleRegister}>
-            <Form.Item
-              label="Имя"
-              name="FirstName"
-              rules={[{ required: true, message: 'Пожалуйста, введите ваше имя' }]}
-            >
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="Регистрация" key="2">
+          <Form onFinish={handleRegister} layout="vertical">
+            <Form.Item name="firstName" label="Имя" rules={[{ required: true, message: 'Введите имя' }]}>
               <Input />
             </Form.Item>
-            <Form.Item
-              label="Фамилия"
-              name="LastName"
-              rules={[{ required: true, message: 'Пожалуйста, введите вашу фамилию' }]}
-            >
+            <Form.Item name="lastName" label="Фамилия" rules={[{ required: true, message: 'Введите фамилию' }]}>
               <Input />
             </Form.Item>
-            <Form.Item
-              label="Email"
-              name="Email"
-              rules={[{ required: true, message: 'Пожалуйста, введите ваш email' }]}
-            >
+            <Form.Item name="email" label="Email" rules={[{ required: true, message: 'Введите Email' }]}>
               <Input />
             </Form.Item>
-            <Form.Item
-              label="Телефон"
-              name="PhoneNumber"
-              rules={[{ required: true, message: 'Пожалуйста, введите ваш телефон' }]}
-            >
+            <Form.Item name="phoneNumber" label="Телефон" rules={[{ required: true, message: 'Введите телефон' }]}>
               <Input />
             </Form.Item>
-            <Form.Item
-              label="Пароль"
-              name="Password"
-              rules={[{ required: true, message: 'Пожалуйста, введите ваш пароль' }]}
-            >
+            <Form.Item name="password" label="Пароль" rules={[{ required: true, message: 'Введите пароль' }]}>
               <Input.Password />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" htmlType="submit" loading={isLoading}>
+              <Button type="primary" htmlType="submit" loading={loading} block>
                 Зарегистрироваться
               </Button>
             </Form.Item>
           </Form>
-        </TabPane>
+        </Tabs.TabPane>
       </Tabs>
     </Modal>
   );
