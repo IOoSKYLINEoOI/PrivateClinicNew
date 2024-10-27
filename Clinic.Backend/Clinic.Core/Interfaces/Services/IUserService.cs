@@ -1,5 +1,6 @@
 ﻿
 using Clinic.Core.Enums;
+using Clinic.Core.Models;
 using CSharpFunctionalExtensions;
 
 namespace Clinic.Core.Interfaces.Services;
@@ -17,4 +18,5 @@ public interface IUserService
        Guid? addressId,
        Guid? imageId);
     Task<HashSet<Permission>> GetUserPermissions(Guid userId);
+    Task<Result<User>> GetByUserId(Guid id);
 }

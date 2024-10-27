@@ -1,5 +1,7 @@
 ﻿using Clinic.Core.Interfaces.Services;
 using Clinic.Core.Models;
+using Clinic.Web.Contracts.TimeSlot;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -40,6 +42,7 @@ public class TimeSlotsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "CreateTimeSlot")]
     public async Task<ActionResult> CreateTimeSlot([FromBody] TimeSlot timeSlot)
     {
         var result = await _timeSlotService.AddTimeSlot(timeSlot);
@@ -53,6 +56,7 @@ public class TimeSlotsController : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
+    [Authorize(Policy = "UpdateTimeSlot")]
     public async Task<ActionResult> UpdateTimeSlot(Guid id, [FromBody] TimeSlotUpdateRequest request)
     {
         var result = await _timeSlotService.UpdateTimeSlot(id, request.StartTime, request.EndTime, request.IsAvailable);
@@ -66,6 +70,7 @@ public class TimeSlotsController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Policy = "DeleteTimeSlot")]
     public async Task<ActionResult> DeleteTimeSlot(Guid id)
     {
         var result = await _timeSlotService.DeleteTimeSlot(id);
@@ -77,11 +82,4 @@ public class TimeSlotsController : ControllerBase
 
         return Ok(id);
     }
-}
-
-public class TimeSlotUpdateRequest
-{
-    public TimeOnly StartTime { get; set; }
-    public TimeOnly EndTime { get; set; }
-    public bool IsAvailable { get; set; }
 }

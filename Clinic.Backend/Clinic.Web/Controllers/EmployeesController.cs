@@ -16,7 +16,7 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Policy = "")]
+    [Authorize(Policy = "GetAllEmployee")]
     public async Task<ActionResult<List<EmployeeResponse>>> GetAllEmployee()
     {
         var result = await _employeeService.GetAllEmployee();
@@ -31,6 +31,7 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "CreateEmployee")]
     public async Task<ActionResult> CreateEmployee([FromBody] EmployeeRequest request)
     {
         var res = Employee.Create(
@@ -55,6 +56,7 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
+    [Authorize(Policy = "UpdateAllEmployee")]
     public async Task<ActionResult<Guid>> UpdateEmployee(Guid id, [FromBody] EmployeeRequest request)
     {
         var result = await _employeeService.UpdateEmployee(
@@ -73,6 +75,7 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Policy = "DeleteAllEmployee")]
     public async Task<ActionResult<Guid>> DeleteEmployee(Guid id)
     {
         var result = await _employeeService.DeleteEmployee(id);

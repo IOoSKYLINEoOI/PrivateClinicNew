@@ -3,6 +3,7 @@ using Clinic.Core.Enums;
 using Clinic.Core.Interfaces.Repositories;
 using Clinic.Core.Interfaces.Services;
 using Clinic.Core.Models;
+using Clinic.DataAccess.Repositories;
 using CSharpFunctionalExtensions;
 
 public class UserService : IUserService
@@ -93,4 +94,14 @@ public class UserService : IUserService
 
         return result;
     }
+
+    public async Task<Result<User>> GetByUserId(Guid id)
+    {
+        var user = await _usersRepository.GetById(id);
+
+        return user != null
+            ? Result.Success(user)
+            : Result.Failure<User>("User not found");
+    }
+
 }

@@ -6,4 +6,5 @@ public interface IImagesRepository
 {
     Task Add(Image image);
     Task Delete(Guid id);
+    Task<Image> GetById(Guid id);
 }

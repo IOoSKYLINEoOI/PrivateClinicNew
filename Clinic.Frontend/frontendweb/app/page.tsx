@@ -54,8 +54,7 @@ export default function HomePage() {
           <Image
             src="/images/clinicHomeCarousel1.jpg" // Исправленный путь к изображению
             alt="Клиника МЕДЕКОН"
-            layout="fill"
-            objectFit="cover"
+            fill
             className={styles.carouselImage}
             priority
           />
@@ -73,8 +72,7 @@ export default function HomePage() {
           <Image
             src="/images/clinicHomeCarousel2.jpg" 
             alt="Медицинское оборудование"
-            layout="fill"
-            objectFit="cover"
+            fill
             className={styles.carouselImage}
             priority
           />
@@ -148,7 +146,7 @@ export default function HomePage() {
           {testimonials.map((testimonial, index) => (
             <Col xs={24} sm={12} md={8} key={index}>
               <Card bordered={false} className={styles.testimonialCard}>
-                <Paragraph>"{testimonial.feedback}"</Paragraph>
+                <Paragraph>&quot;{testimonial.feedback}&quot;</Paragraph> {/* Экранированные кавычки */}
                 <Title level={5} style={{ textAlign: 'right' }}>— {testimonial.name}</Title>
               </Card>
             </Col>

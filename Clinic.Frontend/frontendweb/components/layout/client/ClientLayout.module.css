@@ -56,4 +56,8 @@
   .icon:hover {
     color: #1890ff; /* Цвет при наведении */
   }
+
+  .profileButton {
+    margin-right: 8px;
+  }
   

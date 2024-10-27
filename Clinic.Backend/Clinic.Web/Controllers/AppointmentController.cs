@@ -1,5 +1,6 @@
 ﻿using Clinic.Core.Interfaces.Services;
 using Clinic.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -14,6 +15,7 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpGet("{id:guid}")]
+    [Authorize(Policy = "GetAppointment")]
     public async Task<ActionResult<Appointment>> GetAppointmentById(Guid id)
     {
         var result = await _appointmentService.GetByAppointmentId(id);
@@ -27,6 +29,7 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "CreateAppointment")]
     public async Task<ActionResult> CreateAppointment([FromBody] Appointment appointment)
     {
         var result = await _appointmentService.AddAppointment(appointment);
@@ -39,20 +42,22 @@ public class AppointmentsController : ControllerBase
         return Ok(appointment);
     }
 
-    //[HttpPut("{id:guid}")]
-    //public async Task<ActionResult> UpdateAppointment(Guid id, [FromBody] Appointment updatedAppointment)
-    //{
-    //    var result = await _appointmentService.UpdateAppointment(id, updatedAppointment);
+    [HttpPut("{id:guid}")]
+    [Authorize(Policy = "UpdateAppointment")]
+    public async Task<ActionResult> UpdateAppointment([FromBody] Appointment updatedAppointment)
+    {
+        var result = await _appointmentService.UpdateAppointment(updatedAppointment);
 
-    //    if (result.IsFailure)
-    //    {
-    //        return BadRequest(result.Error);
-    //    }
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
 
-    //    return Ok(id);
-    //}
+        return Ok(updatedAppointment.Id);
+    }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Policy = "DeleteAppointment")]
     public async Task<ActionResult> DeleteAppointment(Guid id)
     {
         var result = await _appointmentService.DeleteAppointment(id);

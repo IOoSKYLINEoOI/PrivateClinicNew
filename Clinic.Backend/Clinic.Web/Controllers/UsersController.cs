@@ -1,14 +1,13 @@
-﻿using Azure;
-using Clinic.Application.Services;
+﻿using Clinic.Application.Services;
 using Clinic.Core.Enums;
 using Clinic.Core.Interfaces.Services;
-using Clinic.Web.Contracts.Addresses;
 using Clinic.Web.Contracts.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 [ApiController]
-[Route("users")]
+[Route("[controller]")]
 public class UsersController : ControllerBase
 {
     private readonly string _imagesPath =
@@ -92,11 +91,55 @@ public class UsersController : ControllerBase
         return Ok();
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("permissions/{id:guid}")]
+    [Authorize(Policy = "GetPermissionUser")]
     public async Task<HashSet<Permission>> GetUserPermissions(Guid id)
     {
         var result = await _userService.GetUserPermissions(id);
-
         return result;
     }
+
+    [HttpPost("logout")]
+    public IActionResult LogoutUser()
+    {
+        Response.Cookies.Delete("secretCookie");
+        return Ok();
+    }
+
+    [Authorize]
+    [HttpGet("me")]
+    public async Task<ActionResult<UserResponse>> GetUserProfile()
+    {
+        var userId = User.FindFirstValue("userId");
+
+        if (string.IsNullOrEmpty(userId))
+        {
+            return Unauthorized();
+        }
+
+        var result = await _userService.GetByUserId(Guid.Parse(userId));
+
+        if (result.IsFailure)
+        {
+            return NotFound(result.Error); 
+        }
+
+        var user = result.Value;
+
+        var response = new UserResponse(
+            user.Id,
+            user.FirstName,
+            user.LastName,
+            user.FatherName,
+            user.PhoneNumber,
+            user.DateOfBirth,
+            user.ImageId,
+            user.Email,
+            user.Description
+        );
+
+        return Ok(response); 
+    }
+
 }
+

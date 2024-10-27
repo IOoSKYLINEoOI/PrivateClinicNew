@@ -1,10 +1,11 @@
 ﻿using Clinic.Application.Services;
 using Clinic.Core.Models;
 using Clinic.Web.Contracts.Receptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("reception")]
+[Route("[controller]")]
 public class ReceptionsController : ControllerBase
 {
     private readonly IReceptionService _receptionService;
@@ -15,6 +16,7 @@ public class ReceptionsController : ControllerBase
     }
 
     [HttpGet("{userId:guid}")]
+    [Authorize(Policy = "GetAllReception")]
     public async Task<ActionResult<List<ReceptionResponse>>> GetAllReceptionUser(Guid userId)
     {
         var result = await _receptionService.GetAllReceptionUser(userId);
@@ -29,6 +31,7 @@ public class ReceptionsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "CreateReception")]
     public async Task<ActionResult> CreateReception([FromBody] ReceptionRequest request)
     {
         var res = Reception.Create(
@@ -55,6 +58,7 @@ public class ReceptionsController : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
+    [Authorize(Policy = "UpdateReception")]
     public async Task<ActionResult<Guid>> UpdateReception(Guid id, [FromBody] ReceptionRequest request)
     {
         var result = await _receptionService.UpdateReception(
@@ -75,6 +79,7 @@ public class ReceptionsController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Policy = "DeleteReception")]
     public async Task<ActionResult<Guid>> DeleteReception(Guid id)
     {
         var result = await _receptionService.DeleteReception(id);

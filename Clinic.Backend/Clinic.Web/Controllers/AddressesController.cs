@@ -1,6 +1,7 @@
 ﻿using Clinic.Application.Services;
 using Clinic.Core.Models;
 using Clinic.Web.Contracts.Addresses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -28,6 +29,7 @@ public class AddressesController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "CreateAddress")]
     public async Task<ActionResult> CreateAddress([FromBody] AddressRequest request)
     {
         var res = Address.Create(
@@ -56,6 +58,7 @@ public class AddressesController : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
+    [Authorize(Policy = "UpdateAddress")]
     public async Task<ActionResult<Guid>> UpdateAddress(Guid id, [FromBody] AddressRequest request)
     {
         var result = await _addressService.UpdateAddress(
@@ -78,6 +81,7 @@ public class AddressesController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Policy = "DeleteAddress")]
     public async Task<ActionResult<Guid>> DeleteAddress(Guid id)
     {
         var result = await _addressService.DeleteAddress(id);

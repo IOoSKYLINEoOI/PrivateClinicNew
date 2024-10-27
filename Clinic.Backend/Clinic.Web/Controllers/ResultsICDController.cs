@@ -1,10 +1,11 @@
 ﻿using Clinic.Application.Services;
 using Clinic.Core.Models;
 using Clinic.Web.Contracts.ResultsICD;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("resultICD")]
+[Route("[controller]")]
 public class ResultsICDController : ControllerBase
 {
     private readonly IResultICDService _resultICDService;
@@ -15,7 +16,8 @@ public class ResultsICDController : ControllerBase
     }
 
     [HttpGet("{receptionId:guid}")]
-    public async Task<ActionResult<List<ResultICDResponse>>> GetAllResultICDReception(Guid receptionId)
+    [Authorize(Policy = "GetAllResultICDReception")]
+    public async Task<ActionResult<List<ResultICDResponse>>> GetAllResultICD(Guid receptionId)
     {
         var result = await _resultICDService.GetResultICD(receptionId);
         if (result.IsFailure)
@@ -29,6 +31,7 @@ public class ResultsICDController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "CreateResultICD")]
     public async Task<ActionResult> CreateResultICD([FromBody] ResultICDRequest request)
     {
         var res = ResultICD.Create(
@@ -52,6 +55,7 @@ public class ResultsICDController : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
+    [Authorize(Policy = "UpdateResultICD")]
     public async Task<ActionResult<Guid>> UpdateResultICD(Guid id, [FromBody] ResultICDRequest request)
     {
         var result = await _resultICDService.UpdateResultICD(
@@ -69,6 +73,7 @@ public class ResultsICDController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Policy = "DeleteResultICD")]
     public async Task<ActionResult<Guid>> DeleteResultICD(Guid id)
     {
         var result = await _resultICDService.DeleteResultICD(id);

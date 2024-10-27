@@ -1,9 +1,8 @@
-﻿using Clinic.Core.Interfaces.Repositories;
+﻿using Clinic.Application.Services;
+using Clinic.Core.Interfaces.Repositories;
 using Clinic.Core.Models;
 using CSharpFunctionalExtensions;
 using Microsoft.AspNetCore.Http;
-
-namespace Clinic.Application.Services;
 
 public class ImageService : IImageService
 {
@@ -18,18 +17,33 @@ public class ImageService : IImageService
     {
         try
         {
+            // Получаем имя файла
             var fileName = Path.GetFileName(titleImage.FileName);
             var filePath = Path.Combine(path, fileName);
 
+            // Проверка на существование файла
+            if (File.Exists(filePath))
+            {
+                return Result.Failure<Image>("Файл с таким именем уже существует.");
+            }
+
+            // Сохранение файла на диск
             await using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await titleImage.CopyToAsync(stream);
             }
 
-
+            // Создание модели изображения
             var imageResult = Image.Create(Guid.NewGuid(), fileName, filePath);
+            if (imageResult.IsFailure)
+            {
+                return Result.Failure<Image>(imageResult.Error);
+            }
 
-            return imageResult;
+            // Сохранение изображения в базу данных
+            await _imagesRepository.Add(imageResult.Value);
+
+            return Result.Success(imageResult.Value);
         }
         catch (Exception ex)
         {
@@ -37,4 +51,11 @@ public class ImageService : IImageService
         }
     }
 
+    public async Task<Image> GetImageById(Guid imageId)
+    {
+        var result = await _imagesRepository.GetById(imageId);
+        return result; 
+    }
+
 }
+

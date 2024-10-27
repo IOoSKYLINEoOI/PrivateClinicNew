@@ -21,4 +21,20 @@ export interface RegisterUserRequest {
     addressId?: string;
     fileName?: File | null;
   }
+
+  interface RegisterFormValues extends RegisterUserRequest {
+    confirmPassword: string;
+  }
+
+  export interface UserResponse {
+    id: string; // или Guid, в зависимости от того, как вы хотите это использовать
+    firstName: string;
+    lastName: string;
+    fatherName?: string;
+    phoneNumber: string;
+    dateOfBirth: string; // или Date, в зависимости от обработки даты
+    imageId?: string;
+    email: string;
+    description?: string;
+  }
   

@@ -1,6 +1,7 @@
 ﻿using Clinic.Core.Interfaces.Repositories;
 using Clinic.Core.Models;
 using Clinic.DataAccess.Models;
+using CSharpFunctionalExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clinic.DataAccess.Repositories;
@@ -38,10 +39,12 @@ public class ImagesRepository : IImagesRepository
     {
         var imageEntity = await _context.Images
             .AsNoTracking()
-            .FirstOrDefaultAsync(i => i.Id == id)
-            ?? throw new Exception($"Image with ID {id} not found.");
+            .FirstOrDefaultAsync(u => u.Id == id) ?? throw new Exception($"Image with ID {id} not found.");
 
-        var image = Image.Create(imageEntity.Id, imageEntity.FileName, imageEntity.FilePath).Value;
+        var image = Image.Create(
+            imageEntity.Id,
+            imageEntity.FileName,
+            imageEntity.FilePath).Value;
 
         return image;
     }

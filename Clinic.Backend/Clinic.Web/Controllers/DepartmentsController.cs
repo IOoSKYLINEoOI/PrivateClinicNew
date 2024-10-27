@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("departments")]
+[Route("[controller]")]
 public class DepartmentsController : ControllerBase
 {
     private readonly IDepartmentService _departmentService;
@@ -46,16 +46,15 @@ public class DepartmentsController : ControllerBase
     }
 
     [HttpPost]
-    //[Authorize(Policy = "AdminPolicy")]
+    [Authorize(Policy = "CreateDepartment")]
     public async Task<ActionResult> CreateDepartment([FromBody] DepartmentRequest request)
     {
-        // Проверяем, что запрос не null
+
         if (request == null)
         {
             return BadRequest("Invalid department request");
         }
 
-        // Создаем адрес
         var resAddress = Address.Create(
             Guid.NewGuid(),
             request.Address.Country,
@@ -73,12 +72,11 @@ public class DepartmentsController : ControllerBase
             return BadRequest(resAddress.Error);
         }
 
-        // Создаем департамент
         var resDepartment = Department.Create(
             Guid.NewGuid(),
             request.Name,
             request.Description,
-            resAddress.Value // Здесь мы передаем объект Address, а не его Id
+            resAddress.Value 
         );
 
         if (resDepartment.IsFailure)
@@ -96,6 +94,7 @@ public class DepartmentsController : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
+    [Authorize(Policy = "UpdateDepartment")]
     public async Task<ActionResult<Guid>> UpdateDepartment(Guid id, [FromBody] DepartmentRequest request)
     {
 
@@ -138,6 +137,7 @@ public class DepartmentsController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Policy = "DeleteDepartment")]
     public async Task<ActionResult<Guid>> DeleteDepartment(Guid id)
     {
         var result = await _departmentService.DeleteDepartment(id);

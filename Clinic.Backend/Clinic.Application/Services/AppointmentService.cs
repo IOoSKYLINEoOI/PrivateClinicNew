@@ -32,9 +32,16 @@ public class AppointmentService : IAppointmentService
         return apointment != null ? Result.Success(apointment) : Result.Failure<Appointment>("Apointment not found");
     }
 
-    //public async Task<Result> UpdateAppointment(Guid id, Appointment updatedAppointment)
-    //{
-    //    await _appointmentRepository.Update(id, updatedAppointment);
-    //    return Result.Success();
-    //}
+    public async Task<Result> UpdateAppointment(Appointment updatedAppointment)
+    {
+        await _appointmentRepository.Update(
+            updatedAppointment.Id, 
+            updatedAppointment.UserId, 
+            updatedAppointment.ReceptionId, 
+            updatedAppointment.TimeSlotId, 
+            updatedAppointment.DateOfBooking, 
+            updatedAppointment.StatusAppointmentId);
+
+        return Result.Success();
+    }
 }

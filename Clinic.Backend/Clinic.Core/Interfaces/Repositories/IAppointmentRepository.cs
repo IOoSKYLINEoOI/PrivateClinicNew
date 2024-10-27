@@ -8,7 +8,7 @@ public interface IAppointmentRepository
     Task Update(
             Guid id,
             Guid userId,
-            Guid receptionId,
+            Guid? receptionId,
             Guid timeSlotId,
             DateTime dateOfBooking,
             int statusAppointmentId);

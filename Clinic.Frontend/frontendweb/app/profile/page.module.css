@@ -1,0 +1,43 @@
+/* pages/ProfilePage.module.css */
+
+.profileContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .avatarCard {
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .name {
+    margin-top: 12px;
+    font-weight: bold;
+  }
+  
+  .email {
+    color: #888;
+    margin-bottom: 16px;
+  }
+  
+  .infoCard {
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  
+  .spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 24px;
+  }
+  
+  .error {
+    text-align: center;
+    color: red;
+    font-size: 18px;
+  }
+  

@@ -96,4 +96,30 @@ public class UsersRepository : IUsersRepository
                 .SetProperty(x => x.AddressId, addressId)
                 .SetProperty(x => x.ImageId, imageId));
     }
+    public async Task<User?> GetById(Guid id)
+    {
+        var userEntity = await _context.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Id == id);
+
+        if (userEntity == null)
+        {
+            return null; 
+        }
+
+        var user = User.Create(
+            userEntity.Id,
+            userEntity.FirstName,
+            userEntity.LastName,
+            userEntity.FatherName,
+            userEntity.PhoneNumber,
+            userEntity.DateOfBirth,
+            userEntity.ImageId,
+            userEntity.Email,
+            userEntity.Description,
+            userEntity.PasswordHash).Value;
+
+        return user;
+    }
+
 }

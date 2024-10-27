@@ -2,12 +2,12 @@ using Clinic.DataAccess;
 using Clinic.Application;
 using Clinic.Infrastructure;
 using Clinic.Web.Extensions;
-using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.Extensions.Options;
 using Serilog;
 using Clinic.Infrastructure.Authentication;
 using Clinic.Web.Infrastructure;
 using Clinic.Web.Middlewares;
+using Microsoft.AspNetCore.CookiePolicy;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,24 +66,23 @@ app.UseExceptionHandler("/error");
 // Использование статических файлов
 app.UseStaticFiles();
 
-// Конфигурация политики cookie
+// Настройка маршрутизации
+app.UseRouting();
+
+app.UseCors(x =>
+{
+    x.AllowAnyHeader();
+    x.WithOrigins("https://localhost:3000");
+    x.AllowAnyMethod();
+    x.AllowCredentials();
+});
+
 app.UseCookiePolicy(new CookiePolicyOptions
 {
     MinimumSameSitePolicy = SameSiteMode.Strict,
     HttpOnly = HttpOnlyPolicy.Always,
     Secure = CookieSecurePolicy.Always
 });
-
-app.UseCors(x =>
-{
-    x.AllowAnyHeader();
-    x.WithOrigins("http://localhost:3000");
-    x.AllowAnyMethod();
-    x.AllowCredentials();
-});
-
-// Настройка маршрутизации
-app.UseRouting();
 
 // Использование аутентификации и авторизации
 app.UseAuthentication();

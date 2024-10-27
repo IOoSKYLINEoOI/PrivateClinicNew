@@ -16,4 +16,5 @@ public interface IUsersRepository
          DateOnly dateOfBirth,
          Guid? addressId,
          Guid? imageId);
+    Task<User> GetById(Guid id);
 }

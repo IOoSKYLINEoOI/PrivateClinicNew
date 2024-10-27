@@ -1,6 +1,7 @@
 ﻿using Clinic.Application.Services;
 using Clinic.Core.Models;
 using Clinic.Web.Contracts.EmployeesDepartments;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -15,6 +16,7 @@ public class EmployeesDepartmentsController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Policy = "GetEmployeeDepartment")]
     public async Task<ActionResult<EmployeeDepartmentResponse>> GetByEmployeeDepartment(Guid employeeId, Guid departmentId)
     {
         var result = await _employeeDepartmentService.GetByEmployeeDepartment(employeeId, departmentId);
@@ -28,6 +30,7 @@ public class EmployeesDepartmentsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "CreateEmployeeDepartment")]
     public async Task<ActionResult> CreateEmployeeDepartment([FromBody] EmployeeDepartmentRequest request)
     {
         var res = EmployeeDepartment.Create(
@@ -51,6 +54,7 @@ public class EmployeesDepartmentsController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Policy = "UpdateEmployeeDepartment")]
     public async Task<ActionResult<(Guid, Guid)>> UpdateEmployeeDepartment(Guid employeeId, Guid departmentId, [FromBody] EmployeeDepartmentRequest request)
     {
         var result = await _employeeDepartmentService.UpdateEmployeeDepartment(
@@ -67,7 +71,8 @@ public class EmployeesDepartmentsController : ControllerBase
         return Ok((employeeId, departmentId));
     }
 
-    [HttpDelete]
+    [HttpDelete("{employeeId:guid}/{departmentId:guid}")]
+    [Authorize(Policy = "DeleteEmployeeDepartment")]
     public async Task<ActionResult<(Guid, Guid)>> DeleteEmployeeDepartment(Guid employeeId, Guid departmentId)
     {
         var result = await _employeeDepartmentService.DeleteEmployeeDepartment(employeeId, departmentId);

@@ -1,5 +1,6 @@
 ﻿using Clinic.Core.Interfaces.Services;
 using Clinic.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -14,6 +15,7 @@ public class SchedulesController : ControllerBase
     }
 
     [HttpGet("{id:guid}")]
+    [Authorize(Policy = "GetSchedule")]
     public async Task<ActionResult<Schedule>> GetScheduleById(Guid id)
     {
         var result = await _scheduleService.GetByIdSchedule(id);
@@ -27,6 +29,7 @@ public class SchedulesController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Policy = "GetAllSchedule")]
     public async Task<ActionResult<List<Schedule>>> GetAllSchedules()
     {
         var result = await _scheduleService.GetAllSchedules();
@@ -40,6 +43,7 @@ public class SchedulesController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "CreateSchedule")]
     public async Task<ActionResult> CreateSchedule([FromBody] Schedule schedule)
     {
         var result = await _scheduleService.AddSchedule(schedule);
@@ -53,6 +57,7 @@ public class SchedulesController : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
+    [Authorize(Policy = "UpdateSchedule")]
     public async Task<ActionResult> UpdateSchedule(Guid id, [FromBody] Schedule schedule)
     {
         if (id != schedule.Id)
@@ -71,6 +76,7 @@ public class SchedulesController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize(Policy = "DeleteSchedule")]
     public async Task<ActionResult> DeleteSchedule(Guid id)
     {
         var result = await _scheduleService.DeleteSchedule(id);

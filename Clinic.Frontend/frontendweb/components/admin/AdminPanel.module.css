@@ -1,0 +1,29 @@
+/* components/AdminPanel.module.css */
+
+.adminPanel {
+    height: 100vh;
+  }
+  
+  .header {
+    background-color: #001529;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .content {
+    padding: 24px;
+    background-color: #f0f2f5;
+  }
+  
+  .tableActions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .modalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  

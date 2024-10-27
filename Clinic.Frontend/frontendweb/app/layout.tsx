@@ -1,7 +1,7 @@
-
+// app/layout.tsx
+import LayoutSelector from '@/components/layout/LayoutSelector';
 import '../styles/globals.css';
 import { siteMetadata } from './metadata';
-import ClientLayout from '../components/ClientLayout';
 import { Roboto } from 'next/font/google';
 
 const roboto = Roboto({
@@ -20,10 +20,8 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head />
-      <body>
-        <ClientLayout>
-          {children}
-        </ClientLayout>
+      <body className={roboto.className}>
+        <LayoutSelector>{children}</LayoutSelector>
       </body>
     </html>
   );
