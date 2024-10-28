@@ -1,4 +1,3 @@
-// utils/api.ts
 import axios from 'axios';
 import { DepartmentRequest, DepartmentResponse } from '@/models/Department';
 import { RegisterUserRequest, LoginUserRequest, UserUpdateRequest, UserResponse } from '@/models/User';
@@ -6,8 +5,8 @@ import { EmployeeRequest, EmployeeResponse } from '@/models/Employee';
 import { EmployeeDepartmentRequest, EmployeeDepartmentResponse } from '@/models/EmployeeDepartment';
 
 const api = axios.create({
-  baseURL: 'https://localhost:7179', // Замените на ваш базовый URL
-  withCredentials: true, // Чтобы отправлять JWT из куки
+  baseURL: 'https://localhost:7179', 
+  withCredentials: true, 
 });
 
 //Department

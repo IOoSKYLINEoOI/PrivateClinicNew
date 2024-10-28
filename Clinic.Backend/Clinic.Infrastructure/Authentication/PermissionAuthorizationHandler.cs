@@ -1,11 +1,9 @@
-﻿using Clinic.Core.Enums;
-using Clinic.Core.Interfaces.Services;
-using Clinic.Infrastructure.Authentication;
+﻿using Clinic.Core.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace LearninPlatform.Infrastructure.Authentication;
+namespace Clinic.Infrastructure.Authentication;
 
 public class PermissionAuthorizationHandler : AuthorizationHandler<PermissionRequirement>
 {

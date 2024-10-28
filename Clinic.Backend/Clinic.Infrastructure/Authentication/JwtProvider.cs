@@ -19,26 +19,22 @@ namespace Clinic.Infrastructure.Authentication
 
         public string Generate(User user)
         {
-            // Создание списка claims
             var claims = new[]
             {
                 new Claim(CustomClaims.UserId, user.Id.ToString())
             };
 
-            // Создание объекта SigningCredentials с использованием секретного ключа
             var signingCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey)),
                 SecurityAlgorithms.HmacSha256);
 
-            // Создание JWT-токена
             var token = new JwtSecurityToken(
-                issuer: _options.Issuer,  // Добавлен Issuer
-                audience: _options.Audience,  // Добавлена Audience
+                issuer: _options.Issuer,  
+                audience: _options.Audience,  
                 claims: claims,
                 expires: DateTime.UtcNow.AddHours(_options.ExpiresHours),
                 signingCredentials: signingCredentials);
 
-            // Преобразование токена в строку
             var tokenValue = new JwtSecurityTokenHandler().WriteToken(token);
 
             return tokenValue;

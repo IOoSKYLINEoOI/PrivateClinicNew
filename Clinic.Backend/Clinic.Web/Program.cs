@@ -2,14 +2,17 @@ using Clinic.DataAccess;
 using Clinic.Application;
 using Clinic.Infrastructure;
 using Clinic.Web.Extensions;
-using Microsoft.Extensions.Options;
 using Serilog;
 using Clinic.Infrastructure.Authentication;
 using Clinic.Web.Infrastructure;
 using Clinic.Web.Middlewares;
 using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.AspNetCore.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Подключение User Secrets
+builder.Configuration.AddUserSecrets<Program>();
 
 // Настройка Serilog
 builder.Host.UseSerilog((context, loggerConfig) =>
@@ -39,19 +42,15 @@ services
 
 builder.Services.AddProblemDetails();
 
-// Регистрация обработчика исключений
-services.AddExceptionHandler<GlobalExceptionHandler>();
-
 // Создание и настройка приложения
 var app = builder.Build();
 
-// Регистрация политик после настройки сервисов и перед запуском приложения
-using (var scope = app.Services.CreateScope())
-{
-    var policyProvider = scope.ServiceProvider.GetRequiredService<PolicyProvider>();
-    var authorizationOptions = scope.ServiceProvider.GetRequiredService<IOptions<Microsoft.AspNetCore.Authorization.AuthorizationOptions>>().Value;
-    policyProvider.RegisterPolicies(authorizationOptions);
-}
+// Middleware для обработки ошибок
+app.UseMiddleware<GlobalExceptionHandler>(); // Переместите это наверх, перед другими middleware
+
+// Middleware для логирования контекста запроса
+app.UseMiddleware<RequestLogContextMiddleware>();
+
 
 // Настройка среды разработки
 if (app.Environment.IsDevelopment())
@@ -59,9 +58,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-// Настройка обработки исключений
-app.UseExceptionHandler("/error");
 
 // Использование статических файлов
 app.UseStaticFiles();
@@ -101,21 +97,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

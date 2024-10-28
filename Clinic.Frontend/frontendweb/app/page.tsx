@@ -1,5 +1,4 @@
 'use client';
-
 import { Carousel, Card, Row, Col, Typography, Button } from 'antd';
 import { UserOutlined, ScheduleOutlined, SettingOutlined } from '@ant-design/icons';
 import styles from './page.module.css';

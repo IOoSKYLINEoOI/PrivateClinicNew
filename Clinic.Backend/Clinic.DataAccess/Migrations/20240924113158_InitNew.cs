@@ -405,7 +405,7 @@ namespace Clinic.DataAccess.Migrations
                     { 12, "DeleteEmployee" },
                     { 13, "UpdateUser" },
                     { 14, "DeleteUser" },
-                    { 15, "ReadRecetion" },
+                    { 15, "ReadReception" },
                     { 16, "CreateReception" },
                     { 17, "UpdateReception" },
                     { 18, "DeleteReception" },

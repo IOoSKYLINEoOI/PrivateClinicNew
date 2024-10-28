@@ -1,36 +1,49 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Net;
+using System.Threading.Tasks;
 
-namespace Clinic.Web.Infrastructure;
-
-public class GlobalExceptionHandler : IExceptionHandler
+namespace Clinic.Web.Infrastructure
 {
-    private readonly ILogger<GlobalExceptionHandler> _logger;
-
-    public GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
+    public class GlobalExceptionHandler
     {
-        _logger = logger;
-    }
+        private readonly RequestDelegate _next;
+        private readonly ILogger<GlobalExceptionHandler> _logger;
 
-    public async ValueTask<bool> TryHandleAsync(
-        HttpContext httpContext,
-        Exception exception,
-        CancellationToken cancellationToken)
-    {
-        _logger.LogError(exception, "Exception occured: {Message}", exception.Message);
-
-        httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-
-        var problemDetails = new ProblemDetails()
+        public GlobalExceptionHandler(RequestDelegate next, ILogger<GlobalExceptionHandler> logger)
         {
-            Status = StatusCodes.Status500InternalServerError,
-            Title = "Server Error",
-            Detail = exception.Message
-        };
+            _next = next;
+            _logger = logger;
+        }
 
-        await httpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
+        public async Task InvokeAsync(HttpContext context)
+        {
+            try
+            {
+                // Вызов следующего middleware в конвейере
+                await _next(context);
+            }
+            catch (Exception ex)
+            {
+                await HandleExceptionAsync(context, ex);
+            }
+        }
 
-        return true;
+        private Task HandleExceptionAsync(HttpContext context, Exception exception)
+        {
+            _logger.LogError(exception, "Exception occured: {Message}", exception.Message);
+
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+            var problemDetails = new ProblemDetails()
+            {
+                Status = StatusCodes.Status500InternalServerError,
+                Title = "Server Error",
+                Detail = exception.Message
+            };
+
+            return context.Response.WriteAsJsonAsync(problemDetails);
+        }
     }
 }

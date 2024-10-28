@@ -2,17 +2,38 @@
 using Clinic.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
+using System.Collections.Concurrent;
 
-public class PolicyProvider
+public class PolicyProvider : IAuthorizationPolicyProvider
 {
+    private readonly DefaultAuthorizationPolicyProvider _fallbackPolicyProvider;
     private readonly RolePermissionsOptions _rolePermissionsOptions;
+    private readonly ConcurrentDictionary<string, AuthorizationPolicy> _policiesCache = new();
 
-    public PolicyProvider(IOptions<RolePermissionsOptions> rolePermissionsOptions)
+    public PolicyProvider(IOptions<RolePermissionsOptions> rolePermissionsOptions, IOptions<AuthorizationOptions> options)
     {
+        _fallbackPolicyProvider = new DefaultAuthorizationPolicyProvider(options);
         _rolePermissionsOptions = rolePermissionsOptions.Value ?? throw new ArgumentNullException(nameof(rolePermissionsOptions));
+
+        RegisterPolicies();
     }
 
-    public void RegisterPolicies(AuthorizationOptions options)
+    public Task<AuthorizationPolicy> GetPolicyAsync(string policyName)
+    {
+        return Task.FromResult(_policiesCache.TryGetValue(policyName, out var policy) ? policy : null);
+    }
+
+    public Task<AuthorizationPolicy> GetDefaultPolicyAsync()
+    {
+        return _fallbackPolicyProvider.GetDefaultPolicyAsync();
+    }
+
+    public Task<AuthorizationPolicy?> GetFallbackPolicyAsync()
+    {
+        return _fallbackPolicyProvider.GetFallbackPolicyAsync();
+    }
+
+    private void RegisterPolicies()
     {
         if (_rolePermissionsOptions.RolePermissions == null || _rolePermissionsOptions.RolePermissions.Count == 0)
         {
@@ -21,7 +42,6 @@ public class PolicyProvider
 
         var permissionToRolesMap = new Dictionary<Permission, List<string>>();
 
-        // Собираем роли для каждого разрешения
         foreach (var rolePermission in _rolePermissionsOptions.RolePermissions)
         {
             var role = rolePermission.Role;
@@ -44,7 +64,6 @@ public class PolicyProvider
             }
         }
 
-        // Регистрируем политики на основе карты "разрешение -> роли"
         foreach (var kvp in permissionToRolesMap)
         {
             var permission = kvp.Key;
@@ -52,19 +71,12 @@ public class PolicyProvider
 
             var policyName = permission.ToString();
 
-            // Проверка, существует ли уже политика с таким именем
-            if (options.GetPolicy(policyName) != null)
-            {
-                Console.WriteLine($"Policy already exists: {policyName}");
-                continue;
-            }
+            var policy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .AddRequirements(new PermissionRequirement(new[] { permission }))
+                .Build();
 
-            // Добавление новой политики
-            options.AddPolicy(policyName, policy =>
-            {
-                //policy.RequireRole(roles);
-                policy.Requirements.Add(new PermissionRequirement(new[] { permission }));
-            });
+            _policiesCache.TryAdd(policyName, policy);
 
             Console.WriteLine($"Policy registered: {policyName} for roles: {string.Join(", ", roles)}");
         }

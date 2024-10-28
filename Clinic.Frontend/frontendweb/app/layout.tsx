@@ -1,4 +1,3 @@
-// app/layout.tsx
 import LayoutSelector from '@/components/layout/LayoutSelector';
 import '../styles/globals.css';
 import { siteMetadata } from './metadata';

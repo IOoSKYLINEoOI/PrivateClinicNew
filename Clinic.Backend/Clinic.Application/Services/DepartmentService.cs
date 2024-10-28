@@ -1,7 +1,5 @@
-﻿using Clinic.Application.Services;
-using Clinic.Core.Interfaces.Repositories;
+﻿using Clinic.Core.Interfaces.Repositories;
 using Clinic.Core.Models;
-using Clinic.DataAccess.Repositories;
 using CSharpFunctionalExtensions;
 
 public class DepartmentService : IDepartmentService

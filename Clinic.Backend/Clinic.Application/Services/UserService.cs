@@ -3,7 +3,6 @@ using Clinic.Core.Enums;
 using Clinic.Core.Interfaces.Repositories;
 using Clinic.Core.Interfaces.Services;
 using Clinic.Core.Models;
-using Clinic.DataAccess.Repositories;
 using CSharpFunctionalExtensions;
 
 public class UserService : IUserService

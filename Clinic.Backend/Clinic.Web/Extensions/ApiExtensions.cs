@@ -1,9 +1,5 @@
-﻿using Clinic.Application.Services;
-using Clinic.Core.Interfaces.Services;
-using Clinic.Infrastructure.Authentication;
-using LearninPlatform.Infrastructure.Authentication;
+﻿using Clinic.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -50,11 +46,6 @@ public static class ApiExtensions
                 };
             });
 
-        services.AddScoped<IPermissionService, PermissionService>();
 
-        // Регистрация PolicyProvider как Singleton
-        services.AddSingleton<PolicyProvider>();
-
-        services.AddSingleton<IAuthorizationHandler, PermissionAuthorizationHandler>();
     }
 }

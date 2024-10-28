@@ -2,7 +2,7 @@ export interface RegisterUserRequest {
     firstName: string;
     lastName: string;
     fatherName?: string;
-    dateOfBirth: string; // Для DateOnly используем строку в формате 'yyyy-MM-dd'
+    dateOfBirth: string; 
     email: string;
     phoneNumber: string;
     password: string;
@@ -17,7 +17,7 @@ export interface RegisterUserRequest {
     firstName: string;
     lastName: string;
     fatherName?: string;
-    dateOfBirth: string; // Для DateOnly используем строку в формате 'yyyy-MM-dd'
+    dateOfBirth: string; 
     addressId?: string;
     fileName?: File | null;
   }
@@ -27,12 +27,12 @@ export interface RegisterUserRequest {
   }
 
   export interface UserResponse {
-    id: string; // или Guid, в зависимости от того, как вы хотите это использовать
+    id: string; 
     firstName: string;
     lastName: string;
     fatherName?: string;
     phoneNumber: string;
-    dateOfBirth: string; // или Date, в зависимости от обработки даты
+    dateOfBirth: string; 
     imageId?: string;
     email: string;
     description?: string;

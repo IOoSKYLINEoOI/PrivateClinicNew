@@ -14,7 +14,6 @@ public class TimeSlotService : ITimeSlotService
         _timeSlotRepository = timeSlotRepository;
     }
 
-    // Добавление нового временного слота
     public async Task<Result> AddTimeSlot(TimeSlot timeSlot)
     {
         try
@@ -28,7 +27,6 @@ public class TimeSlotService : ITimeSlotService
         }
     }
 
-    // Получение временного слота по ID
     public async Task<Result<TimeSlot>> GetTimeSlotById(Guid id)
     {
         var timeSlot = await _timeSlotRepository.GetById(id);
@@ -40,7 +38,6 @@ public class TimeSlotService : ITimeSlotService
         return Result.Success(timeSlot);
     }
 
-    // Получение всех временных слотов
     public async Task<Result<List<TimeSlot>>> GetAllTimeSlots()
     {
         var timeSlots = await _timeSlotRepository.GetAll();

@@ -1,6 +1,4 @@
-// components/AdminPanel.tsx
 "use client";
-
 import React, { useState } from 'react';
 import { Table, Button, Modal, Form, Input, Space, Typography } from 'antd';
 import styles from './AdminPanel.module.css';

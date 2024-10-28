@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { Avatar, Typography, Card, Row, Col } from 'antd';
 import styles from './page.module.css';

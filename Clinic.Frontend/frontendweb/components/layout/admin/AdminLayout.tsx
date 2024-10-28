@@ -1,6 +1,4 @@
-// components/admin/AdminLayout.tsx
 'use client';
-
 import React, { ReactNode } from 'react';
 import { Layout, Menu, Typography, Button } from 'antd';
 import { UserOutlined, HomeOutlined, LogoutOutlined, AuditOutlined } from '@ant-design/icons';

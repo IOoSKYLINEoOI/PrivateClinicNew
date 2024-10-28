@@ -57,7 +57,7 @@ public class TimeSlotsController : ControllerBase
 
     [HttpPut("{id:guid}")]
     [Authorize(Policy = "UpdateTimeSlot")]
-    public async Task<ActionResult> UpdateTimeSlot(Guid id, [FromBody] TimeSlotUpdateRequest request)
+    public async Task<ActionResult> UpdateTimeSlot(Guid id, [FromBody] TimeSlotRequest request)
     {
         var result = await _timeSlotService.UpdateTimeSlot(id, request.StartTime, request.EndTime, request.IsAvailable);
 

@@ -293,7 +293,7 @@ namespace Clinic.DataAccess.Migrations
                         new
                         {
                             Id = 15,
-                            Name = "ReadRecetion"
+                            Name = "ReadReception"
                         },
                         new
                         {

@@ -16,7 +16,7 @@ public enum Permission
     DeleteEmployee = 12,
     UpdateUser = 13,
     DeleteUser = 14,
-    ReadRecetion = 15,
+    ReadReception = 15,
     CreateReception = 16,
     UpdateReception = 17,
     DeleteReception = 18,

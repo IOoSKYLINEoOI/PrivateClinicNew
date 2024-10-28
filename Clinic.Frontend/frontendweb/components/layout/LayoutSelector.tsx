@@ -1,5 +1,4 @@
 "use client";
-
 import { usePathname } from 'next/navigation';
 import AdminLayout from './admin/AdminLayout';
 import ClientLayout from './client/ClientLayout';
