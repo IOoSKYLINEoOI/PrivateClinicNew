@@ -1,7 +1,7 @@
 'use client';
 import React, { ReactNode } from 'react';
 import { Layout, Menu, Typography, Button } from 'antd';
-import { UserOutlined, HomeOutlined, LogoutOutlined, AuditOutlined } from '@ant-design/icons';
+import { UserOutlined, HomeOutlined, LogoutOutlined, AuditOutlined, CalendarOutlined, CheckOutlined, SwapOutlined, CompressOutlined } from '@ant-design/icons';
 import styles from './AdminLayout.module.css';
 import { useRouter } from 'next/navigation';
 import { useCookies } from 'react-cookie';
@@ -35,6 +35,18 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
           </Menu.Item>
           <Menu.Item key="employeesDepartment" icon={<AuditOutlined />} onClick={() => router.push('/admin/employees-department')}>
             Назначения
+          </Menu.Item>
+          <Menu.Item key="schedule" icon={<CalendarOutlined />} onClick={() => router.push('/admin/schedule')}>
+            Штатное расписание
+          </Menu.Item>
+          <Menu.Item key="diagnostic" icon={<CheckOutlined />} onClick={() => router.push('/admin/diagnostic')}>
+            Анализы
+          </Menu.Item>
+          <Menu.Item key="appointment" icon={<SwapOutlined />} onClick={() => router.push('/admin/appointment')}>
+            Записи
+          </Menu.Item>
+          <Menu.Item key="resultICD" icon={<CompressOutlined />} onClick={() => router.push('/admin/resultICD')}>
+            Результаты
           </Menu.Item>
         </Menu>
       </Sider>

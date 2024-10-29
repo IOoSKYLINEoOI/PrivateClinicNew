@@ -1,6 +1,6 @@
 
 import { Layout, Menu, Button } from 'antd';
-import { UserOutlined, ScheduleOutlined, SettingOutlined } from '@ant-design/icons';
+import { UserOutlined, ScheduleOutlined, FacebookFilled, InstagramFilled, TwitterSquareFilled, ShopOutlined, UsergroupAddOutlined, CheckOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import styles from './ClientLayout.module.css';
 import Link from 'next/link';
@@ -48,8 +48,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           defaultSelectedKeys={['1']}
           items={[
             { key: '1', icon: <UserOutlined />, label: <Link href="/">Главная</Link> },
-            { key: '2', icon: <ScheduleOutlined />, label: <Link href="/appointments">Записи</Link> },
-            { key: '3', icon: <SettingOutlined />, label: <Link href="/departments">Отделения</Link> },
+            { key: '2', icon: <ShopOutlined />, label: <Link href="/departments">Отделения</Link> },
+            { key: '3', icon: <UsergroupAddOutlined />, label: <Link href="/employee">Врачи</Link> },
+            { key: '4', icon: <CheckOutlined />, label: <Link href="/diagnostic">Анализы</Link> },
+            { key: '5', icon: <ScheduleOutlined />, label: <Link href="/appointments">Запись на приём</Link> },            
           ]}
           style={{ flexGrow: 1 }}
         />
@@ -71,7 +73,24 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         {children}
       </Content>
       <Footer className={styles.footer}>
-        {/* Footer Content */}
+      <div className={styles.footerContainer}>
+          <div className={styles.footerSection}>
+            <h3>Контакты</h3>
+            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            <p>Email: info@medekon.ru</p>
+          </div>
+          <div className={styles.footerSection}>
+            <h3>Социальные сети</h3>
+            <div className={styles.socialIcons}>
+              <FacebookFilled className={styles.icon} />
+              <InstagramFilled className={styles.icon} />
+              <TwitterSquareFilled className={styles.icon} />
+            </div>
+          </div>
+          <div className={styles.footerSection}>
+            <p>© {new Date().getFullYear()} Медкон - Все права защищены</p>
+          </div>
+        </div>
       </Footer>
     </Layout>
   );
